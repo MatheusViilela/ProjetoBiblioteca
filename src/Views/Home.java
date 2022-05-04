@@ -196,6 +196,7 @@ public class Home extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
           cad = new Cadastrar();
           cad.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed

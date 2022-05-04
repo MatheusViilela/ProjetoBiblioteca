@@ -89,7 +89,7 @@ public class Cadastrar extends javax.swing.JFrame {
     private void btHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHomeActionPerformed
         hm = new Home();
         hm.setVisible(true);
-       
+        this.dispose();
     }//GEN-LAST:event_btHomeActionPerformed
 
     private void btHomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btHomeKeyPressed
