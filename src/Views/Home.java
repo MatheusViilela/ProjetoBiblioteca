@@ -9,12 +9,12 @@ package Views;
  * @author aluno
  */
 public class Home extends javax.swing.JFrame {
+    
 
-    /**
-     * Creates new form Home
-     */
+    private Cadastrar cad;
     public Home() {
         initComponents();
+        cad = new Cadastrar();
         
     }
 
@@ -59,6 +59,11 @@ public class Home extends javax.swing.JFrame {
 
         btCadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btCadastrar.setText("Cadastre-se!");
+        btCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btCadastrarMouseClicked(evt);
+            }
+        });
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
@@ -177,7 +182,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
@@ -191,6 +196,10 @@ public class Home extends javax.swing.JFrame {
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoSenhaActionPerformed
+
+    private void btCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseClicked
+        cad.setVisible(true);
+    }//GEN-LAST:event_btCadastrarMouseClicked
 
     /**
      * @param args the command line arguments
