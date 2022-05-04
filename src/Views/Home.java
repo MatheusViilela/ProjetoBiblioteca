@@ -10,11 +10,12 @@ package Views;
  */
 public class Home extends javax.swing.JFrame {
     
-
+    
     private Cadastrar cad;
     public Home() {
         initComponents();
-        cad = new Cadastrar();
+        
+             
         
     }
 
@@ -50,14 +51,19 @@ public class Home extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela inicial");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(204, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(255, 204, 204));
+        setLocation(new java.awt.Point(350, 125));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btCadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btCadastrar.setForeground(new java.awt.Color(0, 0, 255));
         btCadastrar.setText("Cadastre-se!");
         btCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -71,9 +77,12 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Novo por aqui?");
+        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 255))); // NOI18N
 
         btLogin.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        btLogin.setForeground(new java.awt.Color(0, 0, 255));
         btLogin.setText("Entrar");
         btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +94,7 @@ public class Home extends javax.swing.JFrame {
         jLabel1.setText("SEJA BEM VINDO");
 
         campoLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        campoLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 255), 1, true));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoLoginActionPerformed(evt);
@@ -92,6 +102,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         campoSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoSenhaActionPerformed(evt);
@@ -99,6 +110,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         btesqueciSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btesqueciSenha.setForeground(new java.awt.Color(0, 0, 255));
         btesqueciSenha.setText("Esqueci minha senha");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -141,7 +153,7 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +183,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +194,8 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-         // TODO add your handling code here:
+          cad = new Cadastrar();
+          cad.setVisible(true);
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
@@ -198,7 +211,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_campoSenhaActionPerformed
 
     private void btCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseClicked
-        cad.setVisible(true);
+
+      
+        
     }//GEN-LAST:event_btCadastrarMouseClicked
 
     /**
