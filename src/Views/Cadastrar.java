@@ -1,11 +1,21 @@
 package Views;
 
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+        
+
 /**
  *
  * @author aluno
  */
 public class Cadastrar extends javax.swing.JFrame {
 
+    private String nome,cpf,endereco,telefone,email,senha;
     private Home hm;
     public Cadastrar() {
         initComponents();
@@ -22,6 +32,7 @@ public class Cadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btHome = new javax.swing.JButton();
@@ -35,6 +46,11 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         cadCampoEmail = new javax.swing.JTextField();
         btCad2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        cadCampoSenha = new javax.swing.JPasswordField();
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setText("Email");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar");
@@ -62,6 +78,11 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel2.setText("CPF");
 
         cadCampoNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cadCampoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadCampoNomeActionPerformed(evt);
+            }
+        });
 
         cadCampoCPF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -87,6 +108,14 @@ public class Cadastrar extends javax.swing.JFrame {
 
         btCad2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btCad2.setText("CADASTRAR");
+        btCad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCad2ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel7.setText("Senha");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,8 +124,8 @@ public class Cadastrar extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cadCampoEndereco)
@@ -108,7 +137,9 @@ public class Cadastrar extends javax.swing.JFrame {
                                     .addComponent(cadCampoNome)))
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cadCampoTelefone, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(cadCampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                        .addComponent(cadCampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadCampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btHome, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
@@ -139,7 +170,11 @@ public class Cadastrar extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cadCampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadCampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCad2)
                     .addComponent(btHome))
@@ -175,6 +210,49 @@ public class Cadastrar extends javax.swing.JFrame {
     private void cadCampoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadCampoEnderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadCampoEnderecoActionPerformed
+
+    private void btCad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCad2ActionPerformed
+        nome = cadCampoNome.getText();
+        cpf = cadCampoCPF.getText();
+        endereco = cadCampoEndereco.getText();
+        telefone = cadCampoTelefone.getText();
+        email = cadCampoEmail.getText();
+        senha = cadCampoSenha.getText();
+        
+         try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca","root","");
+            Statement stm = con.createStatement();
+            if(stm.executeUpdate("INSERT into usuarios(Nome,CPF,Email,Endereco,Telefone,Senha) values('"+nome+"','"+endereco+"','"+telefone+"','"+email+"')")!=0)
+            {
+                JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!!!","Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                cadCampoNome.setText("");
+                cadCampoCPF.setText("");
+                cadCampoEndereco.setText("");
+                cadCampoTelefone.setText("");
+                cadcampoEmail.setText("");
+                cadCampoSenha.setText("");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Erro para realizar o cadastro!!!","Erro",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch(ClassNotFoundException ex)
+        {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+        catch(SQLException ex)
+        {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+        }
+    }                                 
+    }//GEN-LAST:event_btCad2ActionPerformed
+
+    private void cadCampoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadCampoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadCampoNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,12 +296,15 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField cadCampoEmail;
     private javax.swing.JTextField cadCampoEndereco;
     private javax.swing.JTextField cadCampoNome;
+    private javax.swing.JPasswordField cadCampoSenha;
     private javax.swing.JTextField cadCampoTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
