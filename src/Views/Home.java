@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Views;
-
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author aluno
  */
 public class Home extends javax.swing.JFrame {
-    
-    
+   
+    private Home hm;
     private Cadastrar cad;
     public Home() {
         initComponents();
-        
+        cad = new Cadastrar();
              
         
     }
@@ -110,6 +112,11 @@ public class Home extends javax.swing.JFrame {
 
         btesqueciSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btesqueciSenha.setText("Esqueci minha senha");
+        btesqueciSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btesqueciSenhaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Login");
@@ -193,13 +200,48 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-          cad = new Cadastrar();
+          
           cad.setVisible(true);
           this.dispose();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        // TODO add your handling code here:
+        String email,senha;
+        email = campoLogin.getText();
+        senha = campoSenha.getText();
+        int status=0;
+        try
+	{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca","root","");
+		Statement stm = con.createStatement();
+		ResultSet res = stm.executeQuery("SELECT * from administrador");
+		while(res.next())
+		{
+		   if(res.getString("email").equals(email)&&
+                      res.getString("senha").equals(senha))
+                   {
+                       status = 1;
+                   }		   
+		}
+		if(status == 0)
+                {
+                    JOptionPane.showMessageDialog(null,"Login ou senha invalido","Erro",JOptionPane.ERROR_MESSAGE);
+	        }
+                else if(status == 1)
+                {
+                    cad.setVisible(true);
+                    this.dispose();
+                }
+	}
+	catch(ClassNotFoundException ex)
+	{
+		JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+	}
+	catch(SQLException ex)
+	{
+		JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
+	}
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void campoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginActionPerformed
@@ -215,6 +257,11 @@ public class Home extends javax.swing.JFrame {
       
         
     }//GEN-LAST:event_btCadastrarMouseClicked
+
+    private void btesqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btesqueciSenhaActionPerformed
+       JOptionPane.showMessageDialog(null,"SEU BURRO");
+System.exit(0);
+    }//GEN-LAST:event_btesqueciSenhaActionPerformed
 
     /**
      * @param args the command line arguments
