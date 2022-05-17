@@ -1,19 +1,21 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Views;
-
-/**
- *
- * @author aluno
- */
+import javax.swing.JOptionPane;
+import Controller.AcessoBD;
 public class Login extends javax.swing.JFrame {
     
-    
     private Cadastrar cad;
+    private TelaAdmin Tadm;
     public Login() {
         initComponents();
+        cad = new Cadastrar();
+        Tadm = new TelaAdmin();
+        
+        
         
              
         
@@ -136,6 +138,7 @@ public class Login extends javax.swing.JFrame {
 
         campoLogin.setBackground(new java.awt.Color(237, 237, 237));
         campoLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        campoLogin.setText("matheusvilela30@gmail.com");
         campoLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 255), 1, true));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +151,7 @@ public class Login extends javax.swing.JFrame {
 
         campoSenha.setBackground(new java.awt.Color(237, 237, 237));
         campoSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        campoSenha.setText("abc123");
         campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +162,11 @@ public class Login extends javax.swing.JFrame {
         btesqueciSenha.setBackground(new java.awt.Color(153, 204, 255));
         btesqueciSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btesqueciSenha.setText("Esqueci minha senha");
+        btesqueciSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btesqueciSenhaActionPerformed(evt);
+            }
+        });
 
         btLogin.setBackground(new java.awt.Color(91, 126, 255));
         btLogin.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -258,7 +267,27 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        // TODO add your handling code here:
+        String email;
+	String senha;
+				
+	AcessoBD acesso = new AcessoBD();
+	Model.Login login = new Model.Login();
+				
+        email = campoLogin.getText();
+	senha = campoSenha.getText();
+				
+	login.setEmail(email);
+	login.setSenha(senha);
+				
+	if(acesso.verificaAcesso(login) == true)
+	{
+	    Tadm.setVisible(true);
+	    dispose();
+	}
+	else
+	{
+            JOptionPane.showMessageDialog(null, "Email ou senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
+	}
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void campoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginActionPerformed
@@ -275,41 +304,15 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btCadastrarMouseClicked
 
+    private void btesqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btesqueciSenhaActionPerformed
+    JOptionPane.showMessageDialog(null, "CONTATE UM ADMINISTRADOR", "Erro", JOptionPane.ERROR_MESSAGE);
+   
+    }//GEN-LAST:event_btesqueciSenhaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
