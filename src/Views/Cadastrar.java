@@ -1,11 +1,15 @@
 package Views;
 
+import javax.swing.JOptionPane;
+import Controller.CadastroBD;
+import Model.Usuarios;
+
 /**
  *
  * @author aluno
  */
 public class Cadastrar extends javax.swing.JFrame {
-
+    private String nome,cpf,telefone,email,cidade,rua,senha,cep,n,uf;
     private Login hm;
     public Cadastrar() {
         initComponents();
@@ -26,10 +30,10 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btHome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        campNome = new javax.swing.JTextField();
+        campoNome = new javax.swing.JTextField();
         campoRua = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        campoEnd = new javax.swing.JTextField();
+        campoCidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         campoTel = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -71,17 +75,22 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Rua");
 
-        campNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        campoNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         campoRua.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        campoRua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoRuaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel3.setText("Endereço");
+        jLabel3.setText("Cidade");
 
-        campoEnd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        campoEnd.addActionListener(new java.awt.event.ActionListener() {
+        campoCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        campoCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEndActionPerformed(evt);
+                campoCidadeActionPerformed(evt);
             }
         });
 
@@ -97,6 +106,11 @@ public class Cadastrar extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("CADASTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setText("CEP");
@@ -124,10 +138,10 @@ public class Cadastrar extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                            .addComponent(campoCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoRua, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoTel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -177,7 +191,7 @@ public class Cadastrar extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,7 +208,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -238,9 +252,50 @@ public class Cadastrar extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btHomeKeyPressed
 
-    private void campoEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEndActionPerformed
+    private void campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoEndActionPerformed
+    }//GEN-LAST:event_campoCidadeActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Usuarios usuario = new Usuarios();
+	CadastroBD CadastroBD = new CadastroBD();
+				
+	nome = campoNome.getText();
+	cpf = campoCPF.getText();
+	telefone = campoTel.getText();
+	email = campoEmailCad.getText();
+        cidade = campoCidade.getText();
+        rua = campoRua.getText();
+        senha = campoSenhaCad.getText();
+        cpf = campoCEP.getText();
+        n = campoN.getText();
+        uf = campoUF.getText();
+        
+				
+        usuario.setNome(nome);
+	usuario.setCpf(cpf);
+	usuario.setTelefone(telefone);
+	usuario.setEmail(email);
+        usuario.setCidade(cidade);
+        usuario.setRua(rua);
+        usuario.setSenha(senha);
+        usuario.setCpf(cpf);
+        usuario.setN(n);
+        usuario.setUf(uf);
+				
+	if(CadastroBD.inserirUsuarios(usuario) == true)
+	{
+		JOptionPane.showMessageDialog(null, "Pessoa cadastrada com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
+	}
+	else
+	{
+		JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
+	}
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void campoRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoRuaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,12 +304,12 @@ public class Cadastrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btHome;
-    private javax.swing.JTextField campNome;
     private javax.swing.JTextField campoCEP;
     private javax.swing.JTextField campoCPF;
+    private javax.swing.JTextField campoCidade;
     private javax.swing.JTextField campoEmailCad;
-    private javax.swing.JTextField campoEnd;
     private javax.swing.JTextField campoN;
+    private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoRua;
     private javax.swing.JPasswordField campoSenhaCad;
     private javax.swing.JTextField campoTel;
