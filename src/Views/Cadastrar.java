@@ -31,7 +31,6 @@ public class Cadastrar extends javax.swing.JFrame {
         campoNome = new javax.swing.JTextField();
         campoRua = new javax.swing.JTextField();
         campoCidade = new javax.swing.JTextField();
-        campoTel = new javax.swing.JTextField();
         campoEmailCad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         campoCEP = new javax.swing.JTextField();
@@ -39,12 +38,12 @@ public class Cadastrar extends javax.swing.JFrame {
         campoCPF = new javax.swing.JTextField();
         campoUF = new javax.swing.JTextField();
         campoSenhaCad = new javax.swing.JPasswordField();
+        campoTel = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar");
         setLocation(new java.awt.Point(350, 125));
-        setPreferredSize(new java.awt.Dimension(800, 555));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -64,7 +63,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 btHomeKeyPressed(evt);
             }
         });
-        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 109, -1));
+        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 160, 30));
 
         campoNome.setBackground(new java.awt.Color(237, 237, 237));
         campoNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -76,27 +75,30 @@ public class Cadastrar extends javax.swing.JFrame {
         });
         jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 620, 10));
 
+        campoRua.setBackground(new java.awt.Color(237, 237, 237));
         campoRua.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        campoRua.setBorder(null);
         campoRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoRuaActionPerformed(evt);
             }
         });
-        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 270, -1));
+        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 230, 10));
 
+        campoCidade.setBackground(new java.awt.Color(237, 237, 237));
         campoCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        campoCidade.setBorder(null);
         campoCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 180, -1));
+        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 180, 20));
 
-        campoTel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, 130, -1));
-
+        campoEmailCad.setBackground(new java.awt.Color(237, 237, 237));
         campoEmailCad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 396, -1));
+        campoEmailCad.setBorder(null);
+        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 441, 350, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("c");
@@ -105,18 +107,41 @@ public class Cadastrar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, -1, -1));
-        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 117, -1));
-        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 40, -1));
-        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 150, 21));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 150, 30));
 
+        campoCEP.setBackground(new java.awt.Color(237, 237, 237));
+        campoCEP.setBorder(null);
+        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 80, 10));
+
+        campoN.setBackground(new java.awt.Color(237, 237, 237));
+        campoN.setBorder(null);
+        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 20, 10));
+
+        campoCPF.setBackground(new java.awt.Color(237, 237, 237));
+        campoCPF.setBorder(null);
+        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 130, 20));
+
+        campoUF.setBackground(new java.awt.Color(237, 237, 237));
+        campoUF.setBorder(null);
         campoUF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoUFActionPerformed(evt);
             }
         });
-        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 60, -1));
-        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 161, -1));
+        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 70, 20));
+
+        campoSenhaCad.setBackground(new java.awt.Color(237, 237, 237));
+        campoSenhaCad.setBorder(null);
+        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 442, 120, 20));
+
+        campoTel.setBackground(new java.awt.Color(237, 237, 237));
+        campoTel.setBorder(null);
+        campoTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 140, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar.png"))); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1100, 610));
@@ -131,6 +156,38 @@ public class Cadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_campoUFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                boolean validado = true;
+
+        if(campoNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Por favor digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+         if(campoCPF.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Por favor digite seu CPF","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+          if(campoNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Por favor digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+           if (!campoEmailCad.getText().contains("@")){
+            JOptionPane.showMessageDialog(null,"Por favor digite um email valido","AVISO",JOptionPane.WARNING_MESSAGE);
+             return;     
+        }
+        
+          if(campoSenhaCad.getText().length()<6){
+            JOptionPane.showMessageDialog(null,"Por favor digite uma senha que tenha no minimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+              
+              
+            
+                     
+        
+        
+        
+        
         Usuarios usuario = new Usuarios();
         CadastroBD CadastroBD = new CadastroBD();
 
@@ -187,6 +244,10 @@ public class Cadastrar extends javax.swing.JFrame {
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
+
+    private void campoTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoTelActionPerformed
 
     /**
      * @param args the command line arguments

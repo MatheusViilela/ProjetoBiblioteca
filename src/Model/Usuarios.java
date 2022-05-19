@@ -130,9 +130,9 @@ public class Usuarios
         return N;
     }
 
-    public void setN(String n)
+    public void setN(String N)
     {
-        this.N = n;
+        this.N = N;
     }
     public String getUf()
     {

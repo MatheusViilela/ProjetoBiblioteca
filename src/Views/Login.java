@@ -1,11 +1,7 @@
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Views;
 import javax.swing.JOptionPane;
 import Controller.AcessoBD;
+import Controller.CadastroBD;
 public class Login extends javax.swing.JFrame {
     
     private Cadastrar cad;
@@ -151,11 +147,15 @@ public class Login extends javax.swing.JFrame {
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         String email;
+        String emailu;
+        String senhau;
         String senha;
-
+        CadastroBD cadastro = new CadastroBD();
         AcessoBD acesso = new AcessoBD();
         Model.Login login = new Model.Login();
-
+        
+        senhau =campoSenha.getText();
+        emailu = campoLogin.getText();
         email = campoLogin.getText();
         senha = campoSenha.getText();
 

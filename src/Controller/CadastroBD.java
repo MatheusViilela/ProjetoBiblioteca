@@ -29,7 +29,7 @@ public class CadastroBD
         {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO usuarios(Nome,CPF,Email,Cidade,Rua,Telefone,Senha,CEP,N,UF) "
+            String sql = "INSERT INTO usuarios(Nome,CPF,Email,Cidade,Rua,Telefone,Senha,Cep,N,UF) "
             		   + "VALUES ('"+ usuario.getNome() + "','" + usuario.getCpf() + "', '" 
             		   + usuario.getEmail() + "', '" + usuario.getCidade() + "','"
                            + usuario.getRua() + "', '" + usuario.getTelefone() + "','"

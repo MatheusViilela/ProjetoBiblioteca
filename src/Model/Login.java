@@ -2,19 +2,25 @@ package Model;
 
 public class Login
 {
+    private String emailu;
+    private String senhau;
     private String email;
     private String senha;
    
 
     public Login() 
     {
+        this.emailu=null;
+        this.senhau=null;
         this.email=null;
         this.senha=null;
           
     }
 
-    public Login(String email, String senha)
+    public Login(String email, String senha, String emailu, String senhau)
     {
+        this.emailu = emailu;
+        this.senhau= senhau;
         this.email = email;
         this.senha = senha;
          
@@ -22,6 +28,7 @@ public class Login
 
     public String getEmail()
     {
+       
         return email;
     }
 
