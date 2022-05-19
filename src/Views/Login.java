@@ -10,10 +10,12 @@ public class Login extends javax.swing.JFrame {
     
     private Cadastrar cad;
     private TelaAdmin Tadm;
+    private TelaUsuario Tuser;
     public Login() {
         initComponents();
         cad = new Cadastrar();
         Tadm = new TelaAdmin();
+        Tuser = new TelaUsuario();
         
         
         
@@ -138,7 +140,6 @@ public class Login extends javax.swing.JFrame {
 
         campoLogin.setBackground(new java.awt.Color(237, 237, 237));
         campoLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        campoLogin.setText("matheusvilela30@gmail.com");
         campoLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 255), 1, true));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +152,6 @@ public class Login extends javax.swing.JFrame {
 
         campoSenha.setBackground(new java.awt.Color(237, 237, 237));
         campoSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        campoSenha.setText("abc123");
         campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,6 +284,10 @@ public class Login extends javax.swing.JFrame {
 	    Tadm.setVisible(true);
 	    dispose();
 	}
+        else if(acesso.verificaAcessoUser(login) == true) {
+            Tuser.setVisible(true);
+            dispose();
+        }
 	else
 	{
             JOptionPane.showMessageDialog(null, "Email ou senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);

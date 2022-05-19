@@ -8,7 +8,7 @@ public class Usuarios
     private String telefone;
     private String email;
     private String senha;
-    private String CEP;
+    private String cep;
     private String N;
     private String UF;
     
@@ -27,7 +27,7 @@ public class Usuarios
         this.rua=null;
         this.telefone=null;
         this.senha=null;
-        this.CEP=null;
+        this.cep=null;
         this.N=null;
         this.UF=null;
         
@@ -35,7 +35,7 @@ public class Usuarios
                
     }
 
-    public Usuarios(String nome,String cpf,String email,String cidade,String rua,String telefone,String senha,String CEP,String N,String UF )
+    public Usuarios(String nome,String cpf,String email,String cidade,String rua,String telefone,String senha,String cep,String N,String UF )
     {
         this.nome=nome;
         this.cpf=cpf;
@@ -44,7 +44,7 @@ public class Usuarios
         this.rua=rua;
         this.telefone=telefone;
         this.senha=senha;
-        this.CEP=CEP;
+        this.cep=cep;
         this.N=N;
         this.UF=UF;   
     }
@@ -118,12 +118,12 @@ public class Usuarios
     } 
     public String getCep()
     {
-        return CEP;
+        return cep;
     }
 
     public void setCep(String cep)
     {
-        this.CEP = cep;
+        this.cep = cep;
     } 
     public String getN()
     {

@@ -267,7 +267,7 @@ public class Cadastrar extends javax.swing.JFrame {
         cidade = campoCidade.getText();
         rua = campoRua.getText();
         senha = campoSenhaCad.getText();
-        cpf = campoCEP.getText();
+        cep = campoCEP.getText();
         n = campoN.getText();
         uf = campoUF.getText();
         
@@ -279,13 +279,13 @@ public class Cadastrar extends javax.swing.JFrame {
         usuario.setCidade(cidade);
         usuario.setRua(rua);
         usuario.setSenha(senha);
-        usuario.setCpf(cpf);
+        usuario.setCep(cep);
         usuario.setN(n);
         usuario.setUf(uf);
 				
 	if(CadastroBD.inserirUsuarios(usuario) == true)
 	{
-		JOptionPane.showMessageDialog(null, "Pessoa cadastrada com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
 	}
 	else
 	{
