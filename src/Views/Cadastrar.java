@@ -4,12 +4,9 @@ import javax.swing.JOptionPane;
 import Controller.CadastroBD;
 import Model.Usuarios;
 
-/**
- *
- * @author aluno
- */
+
 public class Cadastrar extends javax.swing.JFrame {
-    private String nome,cpf,telefone,email,cidade,rua,senha,cep,n,uf;
+    private String nome,cpf,telefone,email,cidade,rua,senha,cep,n,uf,bairro;
     private Login hm;
     public Cadastrar() {
         initComponents();
@@ -39,6 +36,7 @@ public class Cadastrar extends javax.swing.JFrame {
         campoUF = new javax.swing.JTextField();
         campoSenhaCad = new javax.swing.JPasswordField();
         campoTel = new javax.swing.JTextField();
+        campoBairro = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,7 +50,7 @@ public class Cadastrar extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btHome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btHome.setText("VOLTAR");
+        btHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão voltar.png"))); // NOI18N
         btHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btHomeActionPerformed(evt);
@@ -63,7 +61,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 btHomeKeyPressed(evt);
             }
         });
-        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 160, 30));
+        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 150, 30));
 
         campoNome.setBackground(new java.awt.Color(237, 237, 237));
         campoNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -73,7 +71,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoNomeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 620, 10));
+        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 620, 10));
 
         campoRua.setBackground(new java.awt.Color(237, 237, 237));
         campoRua.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -83,7 +81,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoRuaActionPerformed(evt);
             }
         });
-        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 230, 10));
+        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 230, -1));
 
         campoCidade.setBackground(new java.awt.Color(237, 237, 237));
         campoCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -93,33 +91,43 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 180, 20));
+        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 180, 20));
 
         campoEmailCad.setBackground(new java.awt.Color(237, 237, 237));
         campoEmailCad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoEmailCad.setBorder(null);
-        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 441, 350, 20));
+        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("c");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Cadastrar1.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 150, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 150, 30));
 
         campoCEP.setBackground(new java.awt.Color(237, 237, 237));
         campoCEP.setBorder(null);
-        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 80, 10));
+        campoCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCEPActionPerformed(evt);
+            }
+        });
+        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 80, -1));
 
         campoN.setBackground(new java.awt.Color(237, 237, 237));
         campoN.setBorder(null);
-        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 20, 10));
+        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 30, -1));
 
         campoCPF.setBackground(new java.awt.Color(237, 237, 237));
         campoCPF.setBorder(null);
-        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 130, 20));
+        campoCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCPFActionPerformed(evt);
+            }
+        });
+        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 130, 20));
 
         campoUF.setBackground(new java.awt.Color(237, 237, 237));
         campoUF.setBorder(null);
@@ -128,11 +136,11 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoUFActionPerformed(evt);
             }
         });
-        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 70, 20));
+        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 70, 20));
 
         campoSenhaCad.setBackground(new java.awt.Color(237, 237, 237));
         campoSenhaCad.setBorder(null);
-        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 442, 120, 20));
+        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 120, 20));
 
         campoTel.setBackground(new java.awt.Color(237, 237, 237));
         campoTel.setBorder(null);
@@ -141,10 +149,14 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoTelActionPerformed(evt);
             }
         });
-        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 140, -1));
+        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 140, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1100, 610));
+        campoBairro.setBackground(new java.awt.Color(237, 237, 237));
+        campoBairro.setBorder(null);
+        jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 90, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar2.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1100, 610));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 800, -1));
 
@@ -180,13 +192,19 @@ public class Cadastrar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Por favor digite uma senha que tenha no minimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
-              
-              
-            
-                     
-        
-        
-        
+          campoCEP.setText("");
+          campoBairro.setText("");
+          campoCPF.setText("");
+          campoCidade.setText("");
+          campoEmailCad.setText("");
+          campoN.setText("");
+          campoNome.setText("");
+          campoRua.setText("");
+          campoSenhaCad.setText("");
+          campoTel.setText("");
+          campoUF.setText("");
+          
+
         
         Usuarios usuario = new Usuarios();
         CadastroBD CadastroBD = new CadastroBD();
@@ -201,6 +219,7 @@ public class Cadastrar extends javax.swing.JFrame {
         cep = campoCEP.getText();
         n = campoN.getText();
         uf = campoUF.getText();
+        bairro = campoBairro.getText();
 
         usuario.setNome(nome);
         usuario.setCpf(cpf);
@@ -212,6 +231,8 @@ public class Cadastrar extends javax.swing.JFrame {
         usuario.setCep(cep);
         usuario.setN(n);
         usuario.setUf(uf);
+        usuario.setBairro(bairro);
+       
 
         if(CadastroBD.inserirUsuarios(usuario) == true)
         {
@@ -221,6 +242,10 @@ public class Cadastrar extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
         }
+        
+        hm = new Login();
+        hm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadeActionPerformed
@@ -249,6 +274,14 @@ public class Cadastrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoTelActionPerformed
 
+    private void campoCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCEPActionPerformed
+
+    private void campoCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCPFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +289,7 @@ public class Cadastrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btHome;
+    private javax.swing.JTextField campoBairro;
     private javax.swing.JTextField campoCEP;
     private javax.swing.JTextField campoCPF;
     private javax.swing.JTextField campoCidade;

@@ -1,6 +1,5 @@
-
 package Controller;
-import Model.Usuarios;
+import Model.Adm;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,14 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-public class CadastroBD
-{
-
+public class CadastroADM_BD {
+ 
     Connection connection = null;
 
-    public boolean inserirUsuarios(Usuarios usuario) 
+    public boolean inserirAdm(Adm adm) 
     {
-        System.out.println("Cadastrar Usuario");
+        System.out.println("Cadastrar Administrador");
        
         connection = Conexao.getInstance().getConnection();
         
@@ -26,12 +24,9 @@ public class CadastroBD
         {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO usuarios(Nome,CPF,Email,Cidade,Rua,Telefone,Senha,Cep,N,UF,Bairro) "
-            		   + "VALUES ('"+ usuario.getNome() + "','" + usuario.getCpf() + "', '" 
-            		   + usuario.getEmail() + "', '" + usuario.getCidade() + "','"
-                           + usuario.getRua() + "', '" + usuario.getTelefone() + "','"
-                           + usuario.getSenha() + "', '" + usuario.getCep() + "','"
-                           + usuario.getN() + "', '" + usuario.getUf() + "','" + usuario.getBairro() + "')";
+            String sql = "INSERT INTO administrador(nome,email,senha)"
+            		   + "VALUES ('"+ adm.getNome() + "', '" + adm.getEmail() + "', '" + adm.getSenha() + "')";
+                           
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
            
@@ -52,8 +47,8 @@ public class CadastroBD
             catch (SQLException e)
             {
                 System.out.println("Erro ao desconectar" + e.getMessage());
+    
             }
         }
     }
 }
-    
