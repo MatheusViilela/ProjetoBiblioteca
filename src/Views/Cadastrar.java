@@ -71,7 +71,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoNomeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 620, 10));
+        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 235, 640, 20));
 
         campoRua.setBackground(new java.awt.Color(237, 237, 237));
         campoRua.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -81,7 +81,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoRuaActionPerformed(evt);
             }
         });
-        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 230, -1));
+        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 305, 270, 20));
 
         campoCidade.setBackground(new java.awt.Color(237, 237, 237));
         campoCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -91,12 +91,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 180, 20));
+        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 190, 20));
 
         campoEmailCad.setBackground(new java.awt.Color(237, 237, 237));
         campoEmailCad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoEmailCad.setBorder(null);
-        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 20));
+        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 300, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Cadastrar1.png"))); // NOI18N
@@ -108,28 +108,32 @@ public class Cadastrar extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 150, 30));
 
         campoCEP.setBackground(new java.awt.Color(237, 237, 237));
+        campoCEP.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoCEP.setBorder(null);
         campoCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCEPActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 80, -1));
+        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 304, 120, 22));
 
         campoN.setBackground(new java.awt.Color(237, 237, 237));
+        campoN.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoN.setBorder(null);
-        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 30, -1));
+        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 304, 40, 21));
 
         campoCPF.setBackground(new java.awt.Color(237, 237, 237));
+        campoCPF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoCPF.setBorder(null);
         campoCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCPFActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 130, 20));
+        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 140, 20));
 
         campoUF.setBackground(new java.awt.Color(237, 237, 237));
+        campoUF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoUF.setBorder(null);
         campoUF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,21 +143,24 @@ public class Cadastrar extends javax.swing.JFrame {
         jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 70, 20));
 
         campoSenhaCad.setBackground(new java.awt.Color(237, 237, 237));
+        campoSenhaCad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoSenhaCad.setBorder(null);
-        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 120, 20));
+        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 135, 22));
 
         campoTel.setBackground(new java.awt.Color(237, 237, 237));
+        campoTel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoTel.setBorder(null);
         campoTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTelActionPerformed(evt);
             }
         });
-        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 140, -1));
+        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 146, 22));
 
         campoBairro.setBackground(new java.awt.Color(237, 237, 237));
+        campoBairro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         campoBairro.setBorder(null);
-        jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 90, -1));
+        jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 307, 100, 20));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar2.png"))); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1100, 610));
