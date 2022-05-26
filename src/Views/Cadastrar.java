@@ -199,17 +199,7 @@ public class Cadastrar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Por favor digite uma senha que tenha no minimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
-          campoCEP.setText("");
-          campoBairro.setText("");
-          campoCPF.setText("");
-          campoCidade.setText("");
-          campoEmailCad.setText("");
-          campoN.setText("");
-          campoNome.setText("");
-          campoRua.setText("");
-          campoSenhaCad.setText("");
-          campoTel.setText("");
-          campoUF.setText("");
+          
           
 
         
