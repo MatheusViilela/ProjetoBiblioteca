@@ -2,6 +2,7 @@ package Views;
 import javax.swing.JOptionPane;
 import Controller.AcessoBD;
 import Controller.CadastroBD;
+import java.util.HashSet;
 public class Login extends javax.swing.JFrame {
     
     private Cadastrar cad;
@@ -47,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(255, 204, 204));
         setLocation(new java.awt.Point(350, 125));
+        setMaximumSize(new java.awt.Dimension(800, 543));
         setMinimumSize(new java.awt.Dimension(800, 543));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +79,7 @@ public class Login extends javax.swing.JFrame {
                 campoLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 380, 45));
+        getContentPane().add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 340, 30));
 
         campoSenha.setBackground(new java.awt.Color(229, 229, 229));
         campoSenha.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
@@ -88,8 +90,9 @@ public class Login extends javax.swing.JFrame {
                 campoSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 380, 43));
+        getContentPane().add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 370, 40));
 
+        btesqueciSenha.setBackground(new java.awt.Color(255, 255, 255));
         btesqueciSenha.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btesqueciSenha.setForeground(new java.awt.Color(11, 42, 119));
         btesqueciSenha.setText("Esqueci minha senha");
@@ -101,6 +104,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btesqueciSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
 
+        btLogin.setBackground(new java.awt.Color(255, 255, 255));
         btLogin.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         btLogin.setForeground(new java.awt.Color(102, 255, 102));
         btLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Entrar.png"))); // NOI18N
@@ -112,6 +116,8 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 110, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaLogin.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(800, 543));
+        jLabel1.setMinimumSize(new java.awt.Dimension(800, 543));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 543));
 
         pack();
@@ -153,18 +159,12 @@ public class Login extends javax.swing.JFrame {
         emailu = campoLogin.getText();
         email = campoLogin.getText();
         senha = campoSenha.getText();
-
+        
+        
+       
         login.setEmail(email);
         login.setSenha(senha);
-        if(campoLogin.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor digite seu email","AVISO",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        if(campoSenha.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor digite sua senha","AVISO",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
+
         if(acesso.verificaAcesso(login) == true)
         {
             Tadm.setVisible(true);
@@ -178,7 +178,6 @@ public class Login extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Email ou senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        
     }//GEN-LAST:event_btLoginActionPerformed
 
     /**

@@ -25,7 +25,8 @@ public class Login
         this.senha = senha;
          
     }
-
+  
+    
     public String getEmail()
     {
        
@@ -47,24 +48,4 @@ public class Login
         this.senha = senha;
     }
     
-     public String getEmailu()
-    {
-       
-        return emailu;
-    }
-
-    public void setEmailu(String emailu)
-    {
-        this.emailu = emailu;
-    }
-    
-     public String getSenhau()
-    {
-        return senhau;
-    }
-    
-    public void setSenhau(String senhau)
-    {
-        this.senhau = senhau;
-    }
 }

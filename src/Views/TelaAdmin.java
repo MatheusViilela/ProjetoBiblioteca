@@ -1,5 +1,6 @@
 package Views;
 import javax.swing.JOptionPane;
+import Controller.AcessoBD;
 import Controller.CadastroADM_BD;
 import Model.Adm;
 
@@ -37,7 +38,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jTabbedPane2.setBackground(new java.awt.Color(189, 208, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -52,7 +53,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Acervo", jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 153));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
