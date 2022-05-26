@@ -25,7 +25,14 @@ public class AcessoBD
         try
         {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM administrador");
+            ResultSet res = stmt.executeQuery("SELECT * FROM administrador WHERE email='"+ login.getEmail()+"' AND senha='"+login.getSenha()+"'");
+            
+               if(login.getEmail().compareTo("")==0 && login.getSenha().compareTo("")==0)
+		{
+		   status = false;
+		   
+		}
+               else{
             
             while(res.next())
 	    {
@@ -38,7 +45,7 @@ public class AcessoBD
 		{
 		   status = false;
 		}
-	  
+            }
 	    }
             
         } 
@@ -75,8 +82,17 @@ public class AcessoBD
         try
         {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+              ResultSet res = stmt.executeQuery("SELECT * FROM usuarios WHERE Email='"+ login.getEmail()+"' AND Senha='"+login.getSenha()+"'");
             
+               if(login.getEmail().compareTo("")==0 && login.getSenha().compareTo("")==0)
+		{
+		   status = false;
+		   
+		}
+               else{
+                   
+               
+              
             while(res.next())
 	    {
 	        if(login.getEmail().compareTo(res.getString("Email"))==0 && login.getSenha().compareTo(res.getString("Senha"))==0)
@@ -84,11 +100,14 @@ public class AcessoBD
 		   status = true;
 		   
 		}
+//                else if(login.getEmail().compareTo(res.getString("Email"))==0) 
+//                    status = false;
+//                }
 		else
 		{
 		   status = false;
 		}
-	  
+            }
 	    }
             
         } 

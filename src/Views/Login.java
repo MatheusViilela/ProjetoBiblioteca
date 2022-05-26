@@ -156,7 +156,15 @@ public class Login extends javax.swing.JFrame {
 
         login.setEmail(email);
         login.setSenha(senha);
-
+        if(campoLogin.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Por favor digite seu email","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(campoSenha.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Por favor digite sua senha","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         if(acesso.verificaAcesso(login) == true)
         {
             Tadm.setVisible(true);
@@ -170,6 +178,7 @@ public class Login extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Email ou senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_btLoginActionPerformed
 
     /**
