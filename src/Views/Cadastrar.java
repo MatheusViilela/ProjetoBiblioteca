@@ -37,7 +37,8 @@ public class Cadastrar extends javax.swing.JFrame {
         campoSenhaCad = new javax.swing.JPasswordField();
         campoTel = new javax.swing.JTextField();
         campoBairro = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        campoConfirmaSenha = new javax.swing.JPasswordField();
+        confirmaSenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar");
@@ -99,7 +100,7 @@ public class Cadastrar extends javax.swing.JFrame {
         jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Cadastrar1.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Cadastrar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -155,8 +156,17 @@ public class Cadastrar extends javax.swing.JFrame {
         campoBairro.setBorder(null);
         jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 90, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar2.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1100, 610));
+        campoConfirmaSenha.setBackground(new java.awt.Color(237, 237, 237));
+        campoConfirmaSenha.setBorder(null);
+        campoConfirmaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoConfirmaSenhaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(campoConfirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, 140, 20));
+
+        confirmaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar2.png"))); // NOI18N
+        jPanel1.add(confirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1100, 610));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 800, -1));
 
@@ -168,8 +178,13 @@ public class Cadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_campoUFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                boolean validado = true;
+         boolean validado = true;
+         String senha = campoSenhaCad.getText();
+         String senha2 = campoConfirmaSenha.getText();
+                 
 
+                
+              
         if(campoNome.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Por favor digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
@@ -192,17 +207,16 @@ public class Cadastrar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Por favor digite uma senha que tenha no minimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
-          campoCEP.setText("");
-          campoBairro.setText("");
-          campoCPF.setText("");
-          campoCidade.setText("");
-          campoEmailCad.setText("");
-          campoN.setText("");
-          campoNome.setText("");
-          campoRua.setText("");
-          campoSenhaCad.setText("");
-          campoTel.setText("");
-          campoUF.setText("");
+         
+          if(senha.equals(senha2)){
+              
+          }
+          else{
+             JOptionPane.showMessageDialog(null,"As senhas devem ser iguais ","AVISO",JOptionPane.WARNING_MESSAGE);
+             return;
+          }
+
+
           
 
         
@@ -237,15 +251,16 @@ public class Cadastrar extends javax.swing.JFrame {
         if(CadastroBD.inserirUsuarios(usuario) == true)
         {
             JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
+            hm = new Login();
+            hm.setVisible(true);
+            this.dispose();
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
         }
         
-        hm = new Login();
-        hm.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCidadeActionPerformed
@@ -282,6 +297,10 @@ public class Cadastrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCPFActionPerformed
 
+    private void campoConfirmaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoConfirmaSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoConfirmaSenhaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,6 +312,7 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField campoCEP;
     private javax.swing.JTextField campoCPF;
     private javax.swing.JTextField campoCidade;
+    private javax.swing.JPasswordField campoConfirmaSenha;
     private javax.swing.JTextField campoEmailCad;
     private javax.swing.JTextField campoN;
     private javax.swing.JTextField campoNome;
@@ -300,8 +320,8 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenhaCad;
     private javax.swing.JTextField campoTel;
     private javax.swing.JTextField campoUF;
+    private javax.swing.JLabel confirmaSenha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

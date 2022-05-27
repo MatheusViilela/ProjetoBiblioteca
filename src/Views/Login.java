@@ -148,15 +148,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         String email;
-        String emailu;
-        String senhau;
         String senha;
         CadastroBD cadastro = new CadastroBD();
         AcessoBD acesso = new AcessoBD();
         Model.Login login = new Model.Login();
         
-        senhau =campoSenha.getText();
-        emailu = campoLogin.getText();
+     
         email = campoLogin.getText();
         senha = campoSenha.getText();
         

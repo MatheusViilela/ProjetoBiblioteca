@@ -8,6 +8,7 @@ import Model.Adm;
        
 public class TelaAdmin extends javax.swing.JFrame {
     private String nome, email, senha;
+    private Login hm;       
 
  
     public TelaAdmin() {
@@ -37,6 +38,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane2.setBackground(new java.awt.Color(189, 208, 255));
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -89,6 +95,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("NOME");
 
@@ -156,22 +167,21 @@ public class TelaAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Adm adm = new Adm();
         CadastroADM_BD CadastroADM_BD = new CadastroADM_BD();
 
-        nome = campoNomeAdm.getText();            
+        nome = campoNomeAdm.getText();
         email = campoEmailAdm.getText();
         senha = campoSenhaAdm.getText();
-       
-        
 
         adm.setNome(nome);
-        adm.setEmail(email);   
+        adm.setEmail(email);
         adm.setSenha(senha);
-
-
-  
 
         if(CadastroADM_BD.inserirAdm(adm) == true)
         {
@@ -181,14 +191,17 @@ public class TelaAdmin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-                                         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campoEmailAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailAdmActionPerformed
-       
+
     }//GEN-LAST:event_campoEmailAdmActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        hm = new Login();
+        hm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
