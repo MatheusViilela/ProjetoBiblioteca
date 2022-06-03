@@ -26,45 +26,30 @@ public class AcessoBD
         try
         {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM administrador ");
+            ResultSet res = stmt.executeQuery("SELECT * FROM administrador");
             
             while(res.next())
 	    { 
-                
                 if(login.getEmail().compareTo(res.getString("email"))==0 && login.getSenha().compareTo(res.getString("senha"))==0)
 		{
 		   status = true;
-	      
-		   
+                   break;
 		}
 		else
 		{
 		   status = false;
 		}
-	  
 	    }
-            
+            connection.close();
         } 
         catch (SQLException e)
         {
             System.out.println(e.getMessage());
             status = false;
         }
-        finally
-        {
-          
-            try
-            {
-                stmt.close();
-                connection.close();
-            }
-            catch (SQLException e)
-            {
-                System.out.println("Erro ao desconectar" + e.getMessage());
-            }
-        }
+        
     	
-           return status;
+        return status;
     }
 
     public boolean verificaAcessoUser(Login login)
@@ -86,8 +71,8 @@ public class AcessoBD
 	        if(login.getEmail().compareTo(res.getString("Email"))==0 && login.getSenha().compareTo(res.getString("Senha"))==0)
 		{
 		   status = true;
-		   
-		}
+                   break;
+                }
 		else
 		{
 		   status = false;

@@ -9,18 +9,13 @@ public class Login
 
     public Login() 
     {
-  
-        this.email=null;
-        this.senha=null;
-          
+        
     }
 
     public Login(String email, String senha)
     {
-  
         this.email = email;
         this.senha = senha;
-         
     }
   
     

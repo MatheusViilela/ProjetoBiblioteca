@@ -152,24 +152,21 @@ public class Login extends javax.swing.JFrame {
         CadastroBD cadastro = new CadastroBD();
         AcessoBD acesso = new AcessoBD();
         Model.Login login = new Model.Login();
-        
-     
+             
         email = campoLogin.getText();
-        senha = campoSenha.getText();
-        
-        
-       
+        senha = campoSenha.getText();      
+               
         login.setEmail(email);
         login.setSenha(senha);
 
         if(acesso.verificaAcesso(login) == true)
         {
             Tadm.setVisible(true);
-            dispose();
+            this.dispose();
         }
         else if(acesso.verificaAcessoUser(login) == true) {
             Tuser.setVisible(true);
-            dispose();
+            this.dispose();
         }
         else
         {

@@ -55,5 +55,45 @@ public class CadastroBD
             }
         }
     }
+     public ArrayList<Usuarios> getListaPessoas() 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+        
+        try
+        {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return listaUsuarios;
+    }
 }
     
