@@ -29,13 +29,13 @@ public class TelaAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        Acervo = new javax.swing.JPanel();
+        Emprestimos = new javax.swing.JPanel();
+        Users = new javax.swing.JPanel();
         btConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
+        tabelaUsers = new javax.swing.JTable();
+        CadastroAdmin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         campoSenhaAdm = new javax.swing.JPasswordField();
@@ -54,37 +54,37 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        Acervo.setBackground(new java.awt.Color(255, 153, 153));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout AcervoLayout = new javax.swing.GroupLayout(Acervo);
+        Acervo.setLayout(AcervoLayout);
+        AcervoLayout.setHorizontalGroup(
+            AcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 634, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        AcervoLayout.setVerticalGroup(
+            AcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 360, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Acervo", jPanel1);
+        jTabbedPane2.addTab("Acervo", Acervo);
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 153));
+        Emprestimos.setBackground(new java.awt.Color(204, 255, 153));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout EmprestimosLayout = new javax.swing.GroupLayout(Emprestimos);
+        Emprestimos.setLayout(EmprestimosLayout);
+        EmprestimosLayout.setHorizontalGroup(
+            EmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 634, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        EmprestimosLayout.setVerticalGroup(
+            EmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 360, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Empréstimos", jPanel2);
+        jTabbedPane2.addTab("Empréstimos", Emprestimos);
 
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Users.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btConsultar.setText("CONSULTAR");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -92,9 +92,9 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btConsultarActionPerformed(evt);
             }
         });
-        jPanel3.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,14 +102,29 @@ public class TelaAdmin extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Title 2", "Title 3", "Title 4"
+                "Nome", "CPF", "Email", "Senha"
             }
-        ));
-        jScrollPane1.setViewportView(tabela);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Byte.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 610, -1));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jTabbedPane2.addTab("Usuários", jPanel3);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelaUsers);
+
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 610, -1));
+
+        jTabbedPane2.addTab("Usuários", Users);
 
         jLabel1.setText("EMAIL");
 
@@ -137,35 +152,35 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jLabel3.setText("NOME");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout CadastroAdminLayout = new javax.swing.GroupLayout(CadastroAdmin);
+        CadastroAdmin.setLayout(CadastroAdminLayout);
+        CadastroAdminLayout.setHorizontalGroup(
+            CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastroAdminLayout.createSequentialGroup()
+                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroAdminLayout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel1))
                             .addComponent(campoSenhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(CadastroAdminLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(jLabel3))))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(CadastroAdminLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(campoEmailAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoNomeAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(76, 76, 76)
                 .addComponent(jButton2)
                 .addContainerGap(287, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        CadastroAdminLayout.setVerticalGroup(
+            CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CadastroAdminLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
@@ -179,13 +194,13 @@ public class TelaAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoSenhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Cadastrar Admin", jPanel4);
+        jTabbedPane2.addTab("Cadastrar Admin", CadastroAdmin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,6 +253,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+
         Connection connection = null;
         ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
       
@@ -248,14 +264,14 @@ public class TelaAdmin extends javax.swing.JFrame {
         try
         {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+            ResultSet res = stmt.executeQuery("SELECT Nome,CPF,Email,Senha FROM usuarios");
             
             while (res.next())
             {
-              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
                 listaUsuarios.add(usuarios);
-            }
-            
+                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+            }            
         } 
         catch (SQLException e)
         {
@@ -278,7 +294,47 @@ public class TelaAdmin extends javax.swing.JFrame {
         return;
           // TODO add your handling code here:
     }//GEN-LAST:event_btConsultarActionPerformed
-
+//    private void usersTable(){
+//        
+//        Connection connection = null;
+//        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+//      
+//        connection = Conexao.getInstance().getConnection();
+//        System.out.println("Conectado e preparando a listagem");
+//        Statement stmt = null;
+//        
+//        try
+//        {
+//            stmt = connection.createStatement();
+//            ResultSet res = stmt.executeQuery("SELECT Nome,CPF,Email,Senha FROM usuarios");
+//            
+//            while (res.next())
+//            {
+//              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
+//                listaUsuarios.add(usuarios);
+//                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+//            }
+//            
+//        } 
+//        catch (SQLException e)
+//        {
+//            System.out.println(e.getMessage());
+//            return ;
+//        }
+//        finally
+//        {
+//          
+//            try
+//            {
+//                stmt.close();
+//                connection.close();
+//            }
+//            catch (SQLException e)
+//            {
+//                System.out.println("Erro ao desconectar" + e.getMessage());
+//            }
+//        }
+//    }
     /**
      * @param args the command line arguments
      */
@@ -287,6 +343,10 @@ public class TelaAdmin extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Acervo;
+    private javax.swing.JPanel CadastroAdmin;
+    private javax.swing.JPanel Emprestimos;
+    private javax.swing.JPanel Users;
     private javax.swing.JButton btConsultar;
     private javax.swing.JTextField campoEmailAdm;
     private javax.swing.JTextField campoNomeAdm;
@@ -296,13 +356,9 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable tabela;
+    private javax.swing.JTable tabelaUsers;
     // End of variables declaration//GEN-END:variables
   }
 

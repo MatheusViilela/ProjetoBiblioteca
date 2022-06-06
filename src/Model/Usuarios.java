@@ -52,6 +52,13 @@ public class Usuarios
         this.UF=UF;
         this.bairro=bairro;
     }
+    public Usuarios(String nome,String cpf,String email,String senha)
+    {
+        this.nome=nome;
+        this.cpf=cpf;
+        this.email=email;
+        this.senha=senha;
+    }
 
     public String getNome()
     {
