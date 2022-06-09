@@ -1,12 +1,20 @@
 package Controller;
 
+import Model.Usuarios;
+import java.util.List;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+
+
 
 public class Conexao 
 {
-
+    Connection connection = null;  
     Connection con = null;
     private static Conexao instance = null;
 
@@ -62,6 +70,59 @@ public class Conexao
             System.out.println(e.getMessage());
         }
     }
+        public List<Usuarios>listarUsers()
+        {
+//        Connection connection = null;
+//        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();      
+        con = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+        
+        try
+        {
+            stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+            List<Usuarios> listaUsuarios = new ArrayList<>();
 
-    
+            while (res.next())
+            {
+//              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
+//                listaUsuarios.add(usuarios);
+//                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+                Usuarios obj = new Usuarios();
+                obj.setId(res.getString("idUsuario"));
+                obj.setNome(res.getString("Nome"));
+                obj.setCpf(res.getString("CPF"));
+                obj.setEmail(res.getString("Email"));
+                obj.setSenha(res.getString("Senha"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+               listaUsuarios.add(obj);
+            }   
+            return listaUsuarios;
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+//        finally
+//        {
+//          
+//            try
+//            {
+////                PreparedStatement stmt.close();
+//                connection.close();
+//            }
+//            catch (SQLException e)
+//            {
+//                System.out.println("Erro ao desconectar" + e.getMessage());
+//            }
+//        }
+//        return;
+
+        }    
 }

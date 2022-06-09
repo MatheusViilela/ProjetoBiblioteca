@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aluno/Desktop/Nova%20pasta%20(2)/ProjetoBiblioteca/ProjetoBiblioteca/ProjetoBiblioteca/src/Views/TelaAdmin.java</file>
-            <file>file:/C:/Users/aluno/Desktop/Nova%20pasta%20(2)/ProjetoBiblioteca/ProjetoBiblioteca/ProjetoBiblioteca/src/Controller/CadastroBD.java</file>
-            <file>file:/C:/Users/aluno/Desktop/Nova%20pasta%20(2)/ProjetoBiblioteca/ProjetoBiblioteca/ProjetoBiblioteca/src/Controller/AcessoBD.java</file>
-            <file>file:/C:/Users/aluno/Desktop/Nova%20pasta%20(2)/ProjetoBiblioteca/ProjetoBiblioteca/ProjetoBiblioteca/src/Views/Login.java</file>
+            <file>file:/C:/Biblioteca/ProjetoBiblioteca/src/Controller/Conexao.java</file>
+            <file>file:/C:/Biblioteca/ProjetoBiblioteca/src/Model/Usuarios.java</file>
+            <file>file:/C:/Biblioteca/ProjetoBiblioteca/src/Views/TelaAdmin.java</file>
         </group>
     </open-files>
 </project-private>

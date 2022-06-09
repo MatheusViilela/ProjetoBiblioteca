@@ -5,18 +5,36 @@ import Controller.CadastroADM_BD;
 import Controller.Conexao;
 import Model.Adm;
 import Model.Usuarios;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 
        
 public class TelaAdmin extends javax.swing.JFrame {
     private String nome, email, senha;
-    private Login hm;       
-
+    private Login hm; 
+    
+    public void Listar(){
+        Conexao obj = new Conexao();
+        List<Usuarios> Users = obj.listarUsers();
+        DefaultTableModel dado = (DefaultTableModel) tabelaUsers.getModel();
+        dado.setNumRows(0);
+        
+        for(Usuarios cont : Users) {
+            dado.addRow(new Object[]{
+                cont.getId(),
+                cont.getNome(),
+                cont.getCpf(),
+                cont.getEmail(),
+                cont.getSenha()
+            });
+        }
+    }
  
     public TelaAdmin() {
         initComponents();
@@ -92,24 +110,24 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btConsultarActionPerformed(evt);
             }
         });
-        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
 
         tabelaUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Email", "Senha"
+                "idUsuario", "Nome", "CPF", "Email", "Senha"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Byte.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -122,7 +140,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsers);
 
-        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 610, -1));
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 610, 190));
 
         jTabbedPane2.addTab("Usuários", Users);
 
@@ -254,44 +272,57 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
 
-        Connection connection = null;
-        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
-      
-        connection = Conexao.getInstance().getConnection();
-        System.out.println("Conectado e preparando a listagem");
-        Statement stmt = null;
-        
-        try
-        {
-            stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT Nome,CPF,Email,Senha FROM usuarios");
-            
-            while (res.next())
-            {
-              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
-                listaUsuarios.add(usuarios);
-                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
-            }            
-        } 
-        catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-            return ;
-        }
-        finally
-        {
-          
-            try
-            {
-                stmt.close();
-                connection.close();
-            }
-            catch (SQLException e)
-            {
-                System.out.println("Erro ao desconectar" + e.getMessage());
-            }
-        }
-        return;
+        Listar();
+//        Connection connection = null;
+////        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+//      
+//        connection = Conexao.getInstance().getConnection();
+//        System.out.println("Conectado e preparando a listagem");
+//        Statement stmt = null;
+//        
+//        try
+//        {
+//            stmt = connection.createStatement();
+//            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+//            ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+//
+//            while (res.next())
+//            {
+////              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
+////                listaUsuarios.add(usuarios);
+////                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+//                Usuarios obj = new Usuarios();
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("CPF"));
+//                obj.setNome(res.getString("Email"));
+//                obj.setNome(res.getString("Senha"));
+////                obj.setNome(res.getString("Nome"));
+////                obj.setNome(res.getString("Nome"));
+////                obj.setNome(res.getString("Nome"));
+////                obj.setNome(res.getString("Nome"));
+////                obj.setNome(res.getString("Nome"));
+//               listaUsuarios.add(obj);
+//            }            
+//        } 
+//        catch (SQLException e)
+//        {
+//            System.out.println(e.getMessage());
+//            return ;
+//        }
+//        finally
+//        {
+//          
+//            try
+//            {
+//                stmt.close();
+//                connection.close();
+//            }
+//            catch (SQLException e)
+//            {
+//                System.out.println("Erro ao desconectar" + e.getMessage());
+//            }
+//        }
+//        return;
           // TODO add your handling code here:
     }//GEN-LAST:event_btConsultarActionPerformed
 //    private void usersTable(){
@@ -358,7 +389,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable tabelaUsers;
+    public javax.swing.JTable tabelaUsers;
     // End of variables declaration//GEN-END:variables
   }
 
