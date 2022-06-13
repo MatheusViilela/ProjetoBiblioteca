@@ -131,7 +131,7 @@ public class Conexao
 //                listaUsuarios.add(usuarios);
 //                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
                 Adm obj = new Adm();
-                obj.setIdAdmin(res.getInt("idAdmin"));
+                obj.setIdAdm(res.getInt("idAdmin"));
                 obj.setNome(res.getString("nome"));
                 obj.setEmail(res.getString("email"));
                 obj.setSenha(res.getString("senha"));
