@@ -2,34 +2,33 @@
 package Model;
 
 public class Adm {
-    private String idAdm;
+    private int idAdm;
     private String nome;
     private String email;
     private String senha;
     
     public Adm() 
     {
-        this.idAdm=null;
+        this.idAdm=0;
         this.nome=null;
         this.email=null;
         this.senha= null;
     
     }
     
-     public Adm(String email, String senha, String nome,String idAdm)
+     public Adm(String email, String senha, String nome,int idAdm)
     {
         this.idAdm=idAdm;
         this.nome=nome;
         this.email=email;
         this.senha=senha;
     }
-     public String getId()
-    {
-       
+     public int getIdAdmin()
+    {       
         return idAdm;
     }
 
-    public void setId(String nome)
+    public void setIdAdmin(int IdAdm)
     {
         this.idAdm = idAdm;
     }

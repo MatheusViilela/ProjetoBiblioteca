@@ -37,15 +37,14 @@ public class TelaAdmin extends javax.swing.JFrame {
     }
     public void ListarAdmin(){
         Conexao obj = new Conexao();
-        List<Usuarios> Users = obj.listarUsers();
-        DefaultTableModel dado = (DefaultTableModel) tabelaUsers.getModel();
+        List<Adm> Adm = obj.listarAdmin();
+        DefaultTableModel dado = (DefaultTableModel) tbAdmin.getModel();
         dado.setNumRows(0);
         
-        for(Usuarios cont : Users) {
+        for(Adm cont : Adm) {
             dado.addRow(new Object[]{
-                cont.getId(),
+                cont.getIdAdmin(),
                 cont.getNome(),
-                cont.getCpf(),
                 cont.getEmail(),
                 cont.getSenha()
             });
@@ -388,7 +387,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btListAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListAdminActionPerformed
-        // TODO add your handling code here:
+    ListarAdmin();      // TODO add your handling code here:
     }//GEN-LAST:event_btListAdminActionPerformed
 //    private void usersTable(){
 //        

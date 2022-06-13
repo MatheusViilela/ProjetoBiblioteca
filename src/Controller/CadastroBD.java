@@ -70,7 +70,7 @@ public class CadastroBD
             
             while (res.next())
             {
-              Usuarios usuarios = new Usuarios(res.getString("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
                 listaUsuarios.add(usuarios);
             }
             

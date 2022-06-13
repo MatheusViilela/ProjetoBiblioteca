@@ -91,7 +91,7 @@ public class Conexao
 //                listaUsuarios.add(usuarios);
 //                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
                 Usuarios obj = new Usuarios();
-                obj.setId(res.getString("idUsuario"));
+                obj.setId(res.getInt("idUsuario"));
                 obj.setNome(res.getString("Nome"));
                 obj.setCpf(res.getString("CPF"));
                 obj.setEmail(res.getString("Email"));
@@ -131,7 +131,7 @@ public class Conexao
 //                listaUsuarios.add(usuarios);
 //                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
                 Adm obj = new Adm();
-                obj.setId(res.getString("idAdmin"));
+                obj.setIdAdmin(res.getInt("idAdmin"));
                 obj.setNome(res.getString("nome"));
                 obj.setEmail(res.getString("email"));
                 obj.setSenha(res.getString("senha"));

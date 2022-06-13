@@ -1,7 +1,7 @@
 package Model;
 public class Usuarios
 {
-    private String id;    
+    private int id;    
     private String nome;
     private String cidade;
     private String rua;
@@ -23,7 +23,7 @@ public class Usuarios
 
     public Usuarios() 
     {
-        this.id=null;
+        this.id=0;
         this.nome=null;
         this.cpf=null;
         this.email=null;
@@ -40,7 +40,7 @@ public class Usuarios
                
     }
 
-    public Usuarios(String id,String nome,String cpf,String email,String cidade,String rua,String telefone,String senha,String cep,String N,String UF,String bairro)
+    public Usuarios(int id,String nome,String cpf,String email,String cidade,String rua,String telefone,String senha,String cep,String N,String UF,String bairro)
     {
         this.id=id;
         this.nome=nome;
@@ -55,7 +55,7 @@ public class Usuarios
         this.UF=UF;
         this.bairro=bairro;
     }
-    public Usuarios(String id,String nome,String cpf,String email,String senha)
+    public Usuarios(int id,String nome,String cpf,String email,String senha)
     {
         this.id=id;
         this.nome=nome;
@@ -64,14 +64,14 @@ public class Usuarios
         this.senha=senha;
     }
 
-    public String getId()
+    public int getId()
     {
         return id;
     }
 
-    public void setId(String nome)
+    public void setId(int id)
     {
-        this.id = nome;
+        this.id = id;
     }
 
     public String getNome()
