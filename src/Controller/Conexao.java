@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import Model.Adm;
 
 
 
@@ -103,6 +104,45 @@ public class Conexao
                listaUsuarios.add(obj);
             }   
             return listaUsuarios;
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        }
+        public List<Adm>listarAdmin()
+        {
+//        Connection connection = null;
+//        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();      
+        con = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+        
+        try
+        {
+            stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM administrador");
+            List<Adm> listaAdm = new ArrayList<>();
+
+            while (res.next())
+            {
+//              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
+//                listaUsuarios.add(usuarios);
+//                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+                Adm obj = new Adm();
+                obj.setId(res.getString("idAdmin"));
+                obj.setNome(res.getString("nome"));
+                obj.setEmail(res.getString("email"));
+                obj.setSenha(res.getString("senha"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+//                obj.setNome(res.getString("Nome"));
+               listaAdm.add(obj);
+            }   
+            return listaAdm;
         } 
         catch (SQLException e)
         {
