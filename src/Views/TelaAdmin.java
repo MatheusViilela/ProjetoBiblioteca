@@ -311,10 +311,10 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btConsultarActionPerformed(evt);
             }
         });
-        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 126, 32));
+        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 126, 32));
 
-        jButton4.setText("EXCLUIR");
-        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 438, 126, 32));
+        jButton4.setText("Excluir");
+        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, 126, 32));
 
         tabelaUsers.setBackground(new java.awt.Color(225, 231, 246));
         tabelaUsers.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -353,31 +353,30 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsers);
 
-        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 740, 370));
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 740, 380));
 
-        jButton5.setText("EDITAR");
+        jButton5.setText("Editar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 126, 32));
+        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 126, 32));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Usuários - Adm.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 830, 530));
+        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 70, 790, 450));
 
         jLabel5.setText("Senha");
-        Users.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        Users.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
         jLabel7.setText("Nome");
         Users.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jLabel8.setText("CPF");
-        Users.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        Users.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jLabel9.setText(" Email");
-        Users.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+        Users.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -385,9 +384,9 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 110, -1));
-        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 90, -1));
-        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 180, -1));
-        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 160, -1));
+        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 90, -1));
+        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
+        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, -1));
 
         jTabbedPane2.addTab("Usuários", Users);
 
