@@ -72,6 +72,42 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         }
     }
+    public void readJTableAdmPesquisa(String nome) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
+        modelo.setNumRows(0);
+        CadastroADM_BD obj = new CadastroADM_BD();
+        Conexao obje = new Conexao();
+
+        for (Adm u : obj.PesquisaNomeAdm(nome)) {
+
+            modelo.addRow(new Object[]{
+                u.getIdAdm(),
+                u.getNome(),
+                u.getEmail(),
+                u.getSenha()
+            });
+
+        }
+    }
+    public void readJTableUserPesquisa(String nome) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaUsers.getModel();
+        modelo.setNumRows(0);
+        CadastroBD obj = new CadastroBD();
+        Conexao obje = new Conexao();
+
+        for (Usuarios u : obj.PesquisaNomeUser(nome)) {
+
+            modelo.addRow(new Object[]{
+                u.getId(),
+                u.getNome(),
+                u.getEmail(),
+                u.getSenha()
+            });
+
+        }
+    }
 
     public TelaAdmin() {
         initComponents();
@@ -104,6 +140,8 @@ public class TelaAdmin extends javax.swing.JFrame {
         btEditAdm = new javax.swing.JButton();
         campoSenhaAdm = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        txtBuscaNome = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -125,6 +163,8 @@ public class TelaAdmin extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        txtPesquisaNomeU = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -298,6 +338,15 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         CadastroAdmin.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 126, 32));
 
+        jButton17.setText("pesquisar");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        CadastroAdmin.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
+        CadastroAdmin.add(txtBuscaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 250, -1));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela adm - adm.png"))); // NOI18N
         CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -459,6 +508,15 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         Users.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
+
+        jButton18.setText("Pesquisa");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        Users.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, -1, -1));
+        Users.add(txtPesquisaNomeU, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 220, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela user - adm.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -692,6 +750,14 @@ public class TelaAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        readJTableAdmPesquisa(txtBuscaNome.getText());
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        readJTableUserPesquisa(txtPesquisaNomeU.getText());
+    }//GEN-LAST:event_jButton18ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Acervo;
@@ -712,6 +778,8 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -734,9 +802,11 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     public javax.swing.JTable tabelaUsers;
     private javax.swing.JTable tbAdmin;
+    private javax.swing.JTextField txtBuscaNome;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPesquisaNomeU;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

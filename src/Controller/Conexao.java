@@ -10,123 +10,90 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import Model.Adm;
 
+public class Conexao {
 
-
-
-public class Conexao 
-{
-    Connection connection = null;  
+    Connection connection = null;
     Connection con = null;
     private static Conexao instance = null;
 
-    public Conexao() 
-    {
-    	try 
-    	{
+    public Conexao() {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Carregado com sucesso!!!");
-        } 
-    	catch (ClassNotFoundException e) 
-    	{
+        } catch (ClassNotFoundException e) {
             System.out.println("O driver do Mysql não pode ser carregado!");
         }
     }
-    
-   
-    public static Conexao getInstance() 
-    {
-        if (instance == null) 
-        {
+
+    public static Conexao getInstance() {
+        if (instance == null) {
             instance = new Conexao();
         }
         return instance;
     }
 
-    public Connection getConnection() 
-    {
-        try 
-        {
-            if ((con == null) || (con.isClosed())) 
-            {
+    public Connection getConnection() {
+        try {
+            if ((con == null) || (con.isClosed())) {
                 con = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca"
                         + "", "root", "");
                 System.out.println("Conexão estabelecida");
             }
-        } 
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return con;
     }
 
-    public void destroy() 
-    {
-        try 
-        {
+    public void destroy() {
+        try {
             con.close();
-        } 
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-        public List<Usuarios>listarUsers()
-        {
-//        Connection connection = null;
-//        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();      
+
+    public List<Usuarios> listarUsers() {
+//       
         con = Conexao.getInstance().getConnection();
         System.out.println("Conectado e preparando a listagem");
         Statement stmt = null;
-        
-        try
-        {
+
+        try {
             stmt = con.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
             List<Usuarios> listaUsuarios = new ArrayList<>();
 
-            while (res.next())
-            {
-//              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
-//                listaUsuarios.add(usuarios);
-//                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
+            while (res.next()) {
                 Usuarios obj = new Usuarios();
                 obj.setId(res.getInt("idUsuario"));
                 obj.setNome(res.getString("Nome"));
                 obj.setCpf(res.getString("CPF"));
                 obj.setEmail(res.getString("Email"));
                 obj.setSenha(res.getString("Senha"));
-//                obj.setNome(res.getString("Nome"));
-//                obj.setNome(res.getString("Nome"));
-//                obj.setNome(res.getString("Nome"));
-//                obj.setNome(res.getString("Nome"));
-//                obj.setNome(res.getString("Nome"));
-               listaUsuarios.add(obj);
-            }   
+                obj.setNome(res.getString("Nome"));
+                listaUsuarios.add(obj);
+            }
             return listaUsuarios;
-        } 
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
-        }
-        public List<Adm>listarAdmin()
-        {
+    }
+
+    public List<Adm> listarAdmin() {
 //        Connection connection = null;
 //        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();      
         con = Conexao.getInstance().getConnection();
         System.out.println("Conectado e preparando a listagem");
         Statement stmt = null;
-        
-        try
-        {
+
+        try {
             stmt = con.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM administrador");
             List<Adm> listaAdm = new ArrayList<>();
 
-            while (res.next())
-            {
+            while (res.next()) {
 //              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
 //                listaUsuarios.add(usuarios);
 //                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
@@ -140,12 +107,10 @@ public class Conexao
 //                obj.setNome(res.getString("Nome"));
 //                obj.setNome(res.getString("Nome"));
 //                obj.setNome(res.getString("Nome"));
-               listaAdm.add(obj);
-            }   
+                listaAdm.add(obj);
+            }
             return listaAdm;
-        } 
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
@@ -164,5 +129,5 @@ public class Conexao
 //        }
 //        return;
 
-        }    
+    }
 }

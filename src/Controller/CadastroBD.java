@@ -96,8 +96,53 @@ public class CadastroBD
                 System.out.println("Erro ao desconectar" + e.getMessage());
             }
         }
+
         return listaUsuarios;
     }
+     public ArrayList<Usuarios> PesquisaNomeUser(String nome) 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        
+        try
+        {
+            stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE nome LIKE ?");
+            stmt.setString(1,"%"+nome+"%");
+            res = stmt.executeQuery();
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+
+        return listaUsuarios;
+    }
+     
       public void AlterarUser(Usuarios usuario)
     {
     	

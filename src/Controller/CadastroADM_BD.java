@@ -95,6 +95,49 @@ public class CadastroADM_BD {
         }
         return listaAdm;
     }
+     public ArrayList<Adm> PesquisaNomeAdm(String nome) 
+    {
+        ArrayList<Adm> listaAdm = new ArrayList<Adm>();
+        
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        
+        try
+        {
+            stmt = connection.prepareStatement("SELECT * FROM administrador WHERE nome LIKE ?");
+            stmt.setString(1,"%"+nome+"%");
+            res = stmt.executeQuery();
+            
+            while (res.next())
+            {
+             Adm adm = new Adm(res.getInt("idAdmin"),res.getString("nome"),res.getString("email"),res.getString("Senha"));
+                listaAdm.add(adm);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return listaAdm;
+    }
        public void AlterarAdm(Adm admin)
     {
     	
