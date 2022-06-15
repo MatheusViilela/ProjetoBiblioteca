@@ -121,28 +121,26 @@ public class CadastroBD
             JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
         }                   
     }
-//      public void AlterarAdm(Adm admin)
-//    {
-//    	
-//    	connection = Conexao.getInstance().getConnection();
-//        System.out.println("Conectado");
-//       PreparedStatement stmt = null;
-//
-//        try
-//        {
-//            stmt = connection.prepareStatement("UPDATE administrador SET Nome = ?,Email = ?,Senha = ? WHERE idAdmin = ? ");
-//            stmt.setString(1,admin.getNome());
-//            stmt.setString(2,admin.getEmail());
-//            stmt.setString(3,admin.getSenha());
-//            stmt.setInt(4,admin.getIdAdm());
-//            
-//            stmt.executeUpdate();
-//            
-//	     JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
-//        }                   
-//    }
+       public void DeleteUser(Usuarios usuario)
+    {
+    	
+    	connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado");
+       PreparedStatement stmt = null;
+
+        try
+        {
+            stmt = connection.prepareStatement("DELETE FROM usuarios WHERE idUsuario = ? ");
+            stmt.setInt(1,usuario.getId());
+            
+            stmt.executeUpdate();
+            
+	     JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
+        }                   
+    }
+//     
      
 }
     

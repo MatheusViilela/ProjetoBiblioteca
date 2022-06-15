@@ -579,32 +579,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 break;
             }
         }
-//            if(dialogButton == JOptionPane.NO_OPTION) {
-//                 remove(dialogButton);
-//                 break;
-//                }
 //            
-//            else if(dialogButton == JOptionPane.YES_OPTION){
-//
-//            Adm p = new Adm();
-//            CadastroADM_BD cad = new CadastroADM_BD();
-//
-//            p.setNome(campoNomeAdm.getText());
-//            p.setEmail(campoEmailAdm.getText());
-//            p.setSenha(campoSenhaAdm.getText());
-//           
-//            p.setIdAdm((int) tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 0));
-//            cad.AlterarAdm(p);
-//
-//            txtNome.setText("");
-//            txtCpf.setText("");
-//            txtEmail.setText("");
-//            txtSenha.setText("");
-////(tbAdmin.getSelectedRow() != -1)
-////            readJTableAdm();
-//
-//        }
-
 
     }//GEN-LAST:event_btEditAdmActionPerformed
 
@@ -646,7 +621,27 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir","WARNING", dialogButton);
+        while (tabelaUsers.getSelectedRow() != -1) {
+            if (dialogButton == JOptionPane.NO_OPTION) {
+                break;
+            } else if (dialogButton == JOptionPane.YES_OPTION) {
+                Usuarios p = new Usuarios();
+               CadastroBD cad = new CadastroBD();
+
+              
+
+                p.setId((int) tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 0));
+                cad.DeleteUser(p);
+
+                txtNome.setText("");
+                txtCpf.setText("");
+                txtEmail.setText("");
+                txtSenha.setText("");
+                break;
+            }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -674,7 +669,27 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+       int dialogButton = JOptionPane.YES_NO_OPTION;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir","WARNING", dialogButton);
+        while (tbAdmin.getSelectedRow() != -1) {
+            if (dialogButton == JOptionPane.NO_OPTION) {
+                break;
+            } else if (dialogButton == JOptionPane.YES_OPTION) {
+                Adm p = new Adm();
+                CadastroADM_BD cad = new CadastroADM_BD();
+
+              
+
+                p.setIdAdm((int) tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 0));
+                cad.DeleteAdm(p);
+
+                txtNome.setText("");
+                txtCpf.setText("");
+                txtEmail.setText("");
+                txtSenha.setText("");
+                break;
+            }
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
 

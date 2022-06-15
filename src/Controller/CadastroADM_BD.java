@@ -117,4 +117,23 @@ public class CadastroADM_BD {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
         }                   
     }
+         public void DeleteAdm(Adm admin)
+    {
+    	
+    	connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado");
+       PreparedStatement stmt = null;
+
+        try
+        {
+            stmt = connection.prepareStatement("DELETE FROM administrador WHERE idAdmin = ? ");
+            stmt.setInt(1,admin.getIdAdm());
+            
+            stmt.executeUpdate();
+            
+	     JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
+        }                   
+    }
 }
