@@ -1,6 +1,7 @@
 
 package Controller;
 import Model.Usuarios;
+import Model.Adm;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -118,16 +119,30 @@ public class CadastroBD
 	     JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
-        }
-            
-       
-              
-	    
-   
-  
-        
-    	
- 
+        }                   
     }
+//      public void AlterarAdm(Adm admin)
+//    {
+//    	
+//    	connection = Conexao.getInstance().getConnection();
+//        System.out.println("Conectado");
+//       PreparedStatement stmt = null;
+//
+//        try
+//        {
+//            stmt = connection.prepareStatement("UPDATE administrador SET Nome = ?,Email = ?,Senha = ? WHERE idAdmin = ? ");
+//            stmt.setString(1,admin.getNome());
+//            stmt.setString(2,admin.getEmail());
+//            stmt.setString(3,admin.getSenha());
+//            stmt.setInt(4,admin.getIdAdm());
+//            
+//            stmt.executeUpdate();
+//            
+//	     JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+//        }                   
+//    }
+     
 }
     

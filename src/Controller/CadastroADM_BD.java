@@ -2,10 +2,12 @@ package Controller;
 import Model.Adm;
 import Model.Usuarios;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class CadastroADM_BD {
@@ -92,5 +94,27 @@ public class CadastroADM_BD {
             }
         }
         return listaAdm;
+    }
+       public void AlterarAdm(Adm admin)
+    {
+    	
+    	connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado");
+       PreparedStatement stmt = null;
+
+        try
+        {
+            stmt = connection.prepareStatement("UPDATE administrador SET nome = ?,email = ?,senha = ? WHERE idAdmin = ? ");
+            stmt.setString(1,admin.getNome());
+            stmt.setString(2,admin.getEmail());
+            stmt.setString(3,admin.getSenha());
+            stmt.setInt(4,admin.getIdAdm());
+            
+            stmt.executeUpdate();
+            
+	     JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+        }                   
     }
 }
