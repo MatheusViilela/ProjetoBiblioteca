@@ -196,25 +196,25 @@ public class Cadastrar extends javax.swing.JFrame {
                 
               
         if(campoNome.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Por favor, digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
         
          if(campoCPF.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor digite seu CPF","AVISO",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Por favor, digite seu CPF","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
           if(campoNome.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Por favor digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Por favor, digite seu nome","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
            if (!campoEmailCad.getText().contains("@")){
-            JOptionPane.showMessageDialog(null,"Por favor digite um email valido","AVISO",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Por favor, digite um email válido","AVISO",JOptionPane.WARNING_MESSAGE);
              return;     
         }
         
           if(campoSenhaCad.getText().length()<6){
-            JOptionPane.showMessageDialog(null,"Por favor digite uma senha que tenha no minimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Por favor, digite uma senha que tenha no mínimo 6 caracteres ","AVISO",JOptionPane.WARNING_MESSAGE);
             return;
         }
          

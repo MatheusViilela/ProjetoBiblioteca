@@ -1,4 +1,5 @@
 package Views;
+
 import javax.swing.JOptionPane;
 import Controller.AcessoBD;
 import Controller.CadastroADM_BD;
@@ -14,19 +15,18 @@ import javax.swing.table.DefaultTableModel;
 import Controller.Conexao;
 import Controller.CadastroBD;
 
-
-       
 public class TelaAdmin extends javax.swing.JFrame {
+
     private String nome, email, senha;
-    private Login hm; 
-    
-    public void Listar(){
+    private Login hm;
+
+    public void Listar() {
         Conexao obj = new Conexao();
         List<Usuarios> Users = obj.listarUsers();
         DefaultTableModel dado = (DefaultTableModel) tabelaUsers.getModel();
         dado.setNumRows(0);
-        
-        for(Usuarios cont : Users) {
+
+        for (Usuarios cont : Users) {
             dado.addRow(new Object[]{
                 cont.getId(),
                 cont.getNome(),
@@ -36,13 +36,14 @@ public class TelaAdmin extends javax.swing.JFrame {
             });
         }
     }
-    public void ListarAdmin(){
+
+    public void ListarAdmin() {
         Conexao obj = new Conexao();
         List<Adm> Adm = obj.listarAdmin();
         DefaultTableModel dado = (DefaultTableModel) tbAdmin.getModel();
         dado.setNumRows(0);
-        
-        for(Adm cont : Adm) {
+
+        for (Adm cont : Adm) {
             dado.addRow(new Object[]{
                 cont.getIdAdm(),
                 cont.getNome(),
@@ -51,14 +52,15 @@ public class TelaAdmin extends javax.swing.JFrame {
             });
         }
     }
-     public void readJTableAdm() {
-        
+
+    public void readJTableAdm() {
+
         DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
         modelo.setNumRows(0);
         Usuarios obj = new Usuarios();
         Conexao obje = new Conexao();
 
-        for (Usuarios u : obje.listarUsers()){
+        for (Usuarios u : obje.listarUsers()) {
 
             modelo.addRow(new Object[]{
                 u.getId(),
@@ -69,15 +71,13 @@ public class TelaAdmin extends javax.swing.JFrame {
             });
 
         }
-     }    
-        
- 
-    public TelaAdmin() {
-        initComponents();
-        
     }
 
-   
+    public TelaAdmin() {
+        initComponents();
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,36 +86,46 @@ public class TelaAdmin extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         Acervo = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         CadastroAdmin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         campoEmailAdm = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         campoNomeAdm = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbAdmin = new javax.swing.JTable();
         btListAdmin = new javax.swing.JButton();
         btEditAdm = new javax.swing.JButton();
         campoSenhaAdm = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         Emprestimos = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         Users = new javax.swing.JPanel();
         btConsultar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsers = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtCpf = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,9 +141,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane2.setBackground(new java.awt.Color(189, 208, 255));
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTabbedPane2.setPreferredSize(new java.awt.Dimension(800, 540));
         jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTabbedPane2MouseClicked(evt);
@@ -141,47 +153,93 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
 
         Acervo.setBackground(new java.awt.Color(251, 251, 251));
+        Acervo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout AcervoLayout = new javax.swing.GroupLayout(Acervo);
-        Acervo.setLayout(AcervoLayout);
-        AcervoLayout.setHorizontalGroup(
-            AcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        AcervoLayout.setVerticalGroup(
-            AcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Cadastrar (novo).png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        Acervo.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 126, 30));
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        Acervo.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 126, 30));
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        Acervo.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 126, 30));
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        Acervo.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 126, 30));
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        Acervo.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - adm certa.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jLabel7.setMaximumSize(new java.awt.Dimension(800, 507));
+        jLabel7.setMinimumSize(new java.awt.Dimension(800, 507));
+        jLabel7.setPreferredSize(new java.awt.Dimension(800, 507));
+        Acervo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, -1, -1));
 
         jTabbedPane2.addTab("Acervo", Acervo);
 
         CadastroAdmin.setBackground(new java.awt.Color(251, 251, 251));
+        CadastroAdmin.setMaximumSize(new java.awt.Dimension(800, 507));
+        CadastroAdmin.setPreferredSize(new java.awt.Dimension(800, 507));
+        CadastroAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("EMAIL");
+        CadastroAdmin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 6, -1, -1));
 
-        jLabel2.setText("SENHA");
-
+        campoEmailAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoEmailAdm.setBorder(null);
         campoEmailAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailAdmActionPerformed(evt);
             }
         });
+        CadastroAdmin.add(campoEmailAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 480, 20));
 
-        jButton1.setText("Cadastrar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Cadastrar (novo).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        CadastroAdmin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 449, 126, 30));
 
-        jButton2.setText("Voltar");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        CadastroAdmin.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jLabel3.setText("NOME");
+        campoNomeAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoNomeAdm.setBorder(null);
+        CadastroAdmin.add(campoNomeAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 53, 550, 22));
 
         tbAdmin.setBackground(new java.awt.Color(225, 231, 246));
         tbAdmin.setModel(new javax.swing.table.DefaultTableModel(
@@ -210,130 +268,120 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tbAdmin);
 
-        btListAdmin.setText("CONSULTAR");
+        CadastroAdmin.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 230, 700, 190));
+
+        btListAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
         btListAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btListAdminActionPerformed(evt);
             }
         });
+        CadastroAdmin.add(btListAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 449, 126, 30));
 
-        btEditAdm.setText("EDITAR");
+        btEditAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         btEditAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditAdmActionPerformed(evt);
             }
         });
+        CadastroAdmin.add(btEditAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, 126, 30));
 
-        javax.swing.GroupLayout CadastroAdminLayout = new javax.swing.GroupLayout(CadastroAdmin);
-        CadastroAdmin.setLayout(CadastroAdminLayout);
-        CadastroAdminLayout.setHorizontalGroup(
-            CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastroAdminLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(133, 133, 133))
-            .addGroup(CadastroAdminLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(btListAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btEditAdm)
-                .addGap(200, 200, 200))
-            .addGroup(CadastroAdminLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastroAdminLayout.createSequentialGroup()
-                        .addComponent(campoSenhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(CadastroAdminLayout.createSequentialGroup()
-                        .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNomeAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(campoEmailAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68))
-                    .addGroup(CadastroAdminLayout.createSequentialGroup()
-                        .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(30, Short.MAX_VALUE))))
-        );
-        CadastroAdminLayout.setVerticalGroup(
-            CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastroAdminLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(CadastroAdminLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNomeAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoSenhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(CadastroAdminLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoEmailAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)))
-                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addGroup(CadastroAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btListAdmin)
-                    .addComponent(btEditAdm))
-                .addGap(29, 29, 29))
-        );
+        campoSenhaAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoSenhaAdm.setBorder(null);
+        CadastroAdmin.add(campoSenhaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 116, 170, 22));
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        CadastroAdmin.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 126, 32));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela adm - adm.png"))); // NOI18N
+        CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane2.addTab("Administradores", CadastroAdmin);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Autorizar.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 126, 30));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Negar.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 126, 30));
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Reservas - adm.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jLabel6.setPreferredSize(new java.awt.Dimension(800, 507));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 880, -1));
 
         jTabbedPane2.addTab("Reservas", jPanel1);
 
         Emprestimos.setBackground(new java.awt.Color(251, 251, 251));
+        Emprestimos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout EmprestimosLayout = new javax.swing.GroupLayout(Emprestimos);
-        Emprestimos.setLayout(EmprestimosLayout);
-        EmprestimosLayout.setHorizontalGroup(
-            EmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        EmprestimosLayout.setVerticalGroup(
-            EmprestimosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Devolver.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        Emprestimos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 126, 30));
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        Emprestimos.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Empréstimo - adm.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setPreferredSize(new java.awt.Dimension(800, 507));
+        Emprestimos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane2.addTab("Empréstimos", Emprestimos);
 
+        Users.setMaximumSize(new java.awt.Dimension(800, 507));
+        Users.setMinimumSize(new java.awt.Dimension(800, 507));
+        Users.setPreferredSize(new java.awt.Dimension(800, 507));
         Users.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btConsultar.setText("Consultar");
+        btConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultarActionPerformed(evt);
             }
         });
-        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 126, 32));
+        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 448, 126, 32));
 
-        jButton4.setText("Excluir");
-        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, 126, 32));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 448, 126, 32));
 
         tabelaUsers.setBackground(new java.awt.Color(225, 231, 246));
         tabelaUsers.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -364,7 +412,8 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         });
         tabelaUsers.setGridColor(new java.awt.Color(0, 51, 153));
-        tabelaUsers.setSelectionForeground(new java.awt.Color(102, 255, 51));
+        tabelaUsers.setRowHeight(22);
+        tabelaUsers.setSelectionForeground(new java.awt.Color(0, 51, 102));
         tabelaUsers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaUsersMouseClicked(evt);
@@ -372,59 +421,53 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsers);
 
-        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 740, 380));
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 710, 190));
 
-        jButton5.setText("Editar");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 126, 32));
+        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 448, 126, 32));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Usuários - Adm.png"))); // NOI18N
-        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 70, 790, 450));
-
-        jLabel5.setText("Senha");
-        Users.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
-
-        jLabel7.setText("Nome");
-        Users.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
-        jLabel8.setText("CPF");
-        Users.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
-
-        jLabel9.setText(" Email");
-        Users.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
-
+        txtNome.setBackground(new java.awt.Color(229, 229, 229));
+        txtNome.setBorder(null);
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
-        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 110, -1));
-        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 90, -1));
-        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 180, -1));
-        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 160, -1));
+        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 53, 450, 20));
+
+        txtCpf.setBackground(new java.awt.Color(229, 229, 229));
+        txtCpf.setBorder(null);
+        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 53, 198, 20));
+
+        txtEmail.setBackground(new java.awt.Color(229, 229, 229));
+        txtEmail.setBorder(null);
+        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 116, 450, 20));
+
+        txtSenha.setBackground(new java.awt.Color(229, 229, 229));
+        txtSenha.setBorder(null);
+        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 116, 200, 20));
+
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        Users.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela user - adm.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setPreferredSize(new java.awt.Dimension(800, 507));
+        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane2.addTab("Usuários", Users);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 805, 539));
 
         pack();
         setLocationRelativeTo(null);
@@ -446,13 +489,10 @@ public class TelaAdmin extends javax.swing.JFrame {
         adm.setEmail(email);
         adm.setSenha(senha);
 
-        if(CadastroADM_BD.inserirAdm(adm) == true)
-        {
-            JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso!!!", "Cadastro",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro",JOptionPane.ERROR_MESSAGE);
+        if (CadastroADM_BD.inserirAdm(adm) == true) {
+            JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso!!!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -471,7 +511,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btListAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListAdminActionPerformed
-    ListarAdmin();      // TODO add your handling code here:
+        ListarAdmin();      // TODO add your handling code here:
     }//GEN-LAST:event_btListAdminActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -479,19 +519,19 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void tabelaUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsersMouseClicked
-      if(tabelaUsers.getSelectedRow()!=-1){
-         
-          txtNome.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 1).toString());
-          txtCpf.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 2).toString());
-          txtEmail.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 3).toString());
-          txtSenha.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 4).toString());
-          
-      }
-          
+        if (tabelaUsers.getSelectedRow() != -1) {
+
+            txtNome.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 1).toString());
+            txtCpf.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 2).toString());
+            txtEmail.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 3).toString());
+            txtSenha.setText(tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 4).toString());
+
+        }
+
     }//GEN-LAST:event_tabelaUsersMouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         if (tabelaUsers.getSelectedRow() != -1) {
+        if (tabelaUsers.getSelectedRow() != -1) {
 
             Usuarios p = new Usuarios();
             CadastroBD cad = new CadastroBD();
@@ -500,7 +540,7 @@ public class TelaAdmin extends javax.swing.JFrame {
             p.setCpf(txtCpf.getText());
             p.setEmail(txtEmail.getText());
             p.setSenha(txtSenha.getText());
-           
+
             p.setId((int) tabelaUsers.getValueAt(tabelaUsers.getSelectedRow(), 0));
             cad.AlterarUser(p);
 
@@ -510,90 +550,133 @@ public class TelaAdmin extends javax.swing.JFrame {
             txtSenha.setText("");
 
 //            readJTable();
-
         }
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btEditAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditAdmActionPerformed
-            if (tbAdmin.getSelectedRow() != -1) {
 
-            Adm p = new Adm();
-            CadastroADM_BD cad = new CadastroADM_BD();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja editar?","WARNING", dialogButton);
+        while (tbAdmin.getSelectedRow() != -1) {
+            if (dialogButton == JOptionPane.NO_OPTION) {
+                break;
+            } else if (dialogButton == JOptionPane.YES_OPTION) {
+                Adm p = new Adm();
+                CadastroADM_BD cad = new CadastroADM_BD();
 
-            p.setNome(campoNomeAdm.getText());
-            p.setEmail(campoEmailAdm.getText());
-            p.setSenha(campoSenhaAdm.getText());
-           
-            p.setIdAdm((int) tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 0));
-            cad.AlterarAdm(p);
+                p.setNome(campoNomeAdm.getText());
+                p.setEmail(campoEmailAdm.getText());
+                p.setSenha(campoSenhaAdm.getText());
 
-            txtNome.setText("");
-            txtCpf.setText("");
-            txtEmail.setText("");
-            txtSenha.setText("");
+                p.setIdAdm((int) tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 0));
+                cad.AlterarAdm(p);
 
-//            readJTableAdm();
-
+                txtNome.setText("");
+                txtCpf.setText("");
+                txtEmail.setText("");
+                txtSenha.setText("");
+                break;
+            }
         }
+//            if(dialogButton == JOptionPane.NO_OPTION) {
+//                 remove(dialogButton);
+//                 break;
+//                }
+//            
+//            else if(dialogButton == JOptionPane.YES_OPTION){
+//
+//            Adm p = new Adm();
+//            CadastroADM_BD cad = new CadastroADM_BD();
+//
+//            p.setNome(campoNomeAdm.getText());
+//            p.setEmail(campoEmailAdm.getText());
+//            p.setSenha(campoSenhaAdm.getText());
+//           
+//            p.setIdAdm((int) tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 0));
+//            cad.AlterarAdm(p);
+//
+//            txtNome.setText("");
+//            txtCpf.setText("");
+//            txtEmail.setText("");
+//            txtSenha.setText("");
+////(tbAdmin.getSelectedRow() != -1)
+////            readJTableAdm();
+//
+//        }
+
 
     }//GEN-LAST:event_btEditAdmActionPerformed
 
     private void tbAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAdminMouseClicked
-         if(tbAdmin.getSelectedRow()!=-1){
-         
-          campoNomeAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 1).toString());
-          campoEmailAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 2).toString());
-          campoSenhaAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 3).toString());
-         
+        if (tbAdmin.getSelectedRow() != -1) {
+
+            campoNomeAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 1).toString());
+            campoEmailAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 2).toString());
+            campoSenhaAdm.setText(tbAdmin.getValueAt(tbAdmin.getSelectedRow(), 3).toString());
+
     }//GEN-LAST:event_tbAdminMouseClicked
-//    private void usersTable(){
-//        
-//        Connection connection = null;
-//        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
-//      
-//        connection = Conexao.getInstance().getConnection();
-//        System.out.println("Conectado e preparando a listagem");
-//        Statement stmt = null;
-//        
-//        try
-//        {
-//            stmt = connection.createStatement();
-//            ResultSet res = stmt.executeQuery("SELECT Nome,CPF,Email,Senha FROM usuarios");
-//            
-//            while (res.next())
-//            {
-//              Usuarios usuarios = new Usuarios(res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Senha"));
-//                listaUsuarios.add(usuarios);
-//                System.out.println(""+res.getString("Nome")+res.getString("CPF")+ res.getString("Email")+ res.getString("Senha"));
-//            }
-//            
-//        } 
-//        catch (SQLException e)
-//        {
-//            System.out.println(e.getMessage());
-//            return ;
-//        }
-//        finally
-//        {
-//          
-//            try
-//            {
-//                stmt.close();
-//                connection.close();
-//            }
-//            catch (SQLException e)
-//            {
-//                System.out.println("Erro ao desconectar" + e.getMessage());
-//            }
-//        }
-//    }
-    /**
-     * @param args the command line arguments
-     */
-    
-    }  
-    
+    }
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        hm = new Login();
+        hm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        hm = new Login();
+        hm.setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        hm = new Login();
+        hm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        hm = new Login();
+        hm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Acervo;
@@ -607,17 +690,27 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField campoNomeAdm;
     private javax.swing.JTextField campoSenhaAdm;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -631,6 +724,4 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
-  }
-
-
+}
