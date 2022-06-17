@@ -129,7 +129,6 @@ public class TelaAdmin extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         CadastroAdmin = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         campoEmailAdm = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -185,6 +184,8 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jTabbedPane2.setBackground(new java.awt.Color(189, 208, 255));
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTabbedPane2.setMaximumSize(new java.awt.Dimension(800, 540));
+        jTabbedPane2.setMinimumSize(new java.awt.Dimension(800, 540));
         jTabbedPane2.setPreferredSize(new java.awt.Dimension(800, 540));
         jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -201,7 +202,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        Acervo.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 126, 30));
+        Acervo.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 126, 32));
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +210,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        Acervo.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 126, 30));
+        Acervo.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 126, 32));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +218,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        Acervo.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 126, 30));
+        Acervo.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 126, 32));
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +226,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        Acervo.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 126, 30));
+        Acervo.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 126, 32));
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -235,31 +236,30 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         Acervo.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - adm certa.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - adm nova.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         jLabel7.setMaximumSize(new java.awt.Dimension(800, 507));
         jLabel7.setMinimumSize(new java.awt.Dimension(800, 507));
         jLabel7.setPreferredSize(new java.awt.Dimension(800, 507));
-        Acervo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, -1, -1));
+        Acervo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane2.addTab("Acervo", Acervo);
 
         CadastroAdmin.setBackground(new java.awt.Color(251, 251, 251));
         CadastroAdmin.setMaximumSize(new java.awt.Dimension(800, 507));
+        CadastroAdmin.setMinimumSize(new java.awt.Dimension(800, 507));
         CadastroAdmin.setPreferredSize(new java.awt.Dimension(800, 507));
         CadastroAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("EMAIL");
-        CadastroAdmin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 6, -1, -1));
-
         campoEmailAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoEmailAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoEmailAdm.setBorder(null);
         campoEmailAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailAdmActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(campoEmailAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 480, 20));
+        CadastroAdmin.add(campoEmailAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 108, 480, 22));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Cadastrar (novo).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -267,7 +267,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 449, 126, 30));
+        CadastroAdmin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 435, 126, 30));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -278,8 +278,9 @@ public class TelaAdmin extends javax.swing.JFrame {
         CadastroAdmin.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
         campoNomeAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoNomeAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoNomeAdm.setBorder(null);
-        CadastroAdmin.add(campoNomeAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 53, 550, 22));
+        CadastroAdmin.add(campoNomeAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 45, 660, 22));
 
         tbAdmin.setBackground(new java.awt.Color(225, 231, 246));
         tbAdmin.setModel(new javax.swing.table.DefaultTableModel(
@@ -308,7 +309,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tbAdmin);
 
-        CadastroAdmin.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 230, 700, 190));
+        CadastroAdmin.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 200, 723, 193));
 
         btListAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
         btListAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +317,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btListAdminActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(btListAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 449, 126, 30));
+        CadastroAdmin.add(btListAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 435, 126, 30));
 
         btEditAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         btEditAdm.addActionListener(new java.awt.event.ActionListener() {
@@ -324,11 +325,12 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btEditAdmActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(btEditAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, 126, 30));
+        CadastroAdmin.add(btEditAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 435, 126, 30));
 
         campoSenhaAdm.setBackground(new java.awt.Color(229, 229, 229));
+        campoSenhaAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoSenhaAdm.setBorder(null);
-        CadastroAdmin.add(campoSenhaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 116, 170, 22));
+        CadastroAdmin.add(campoSenhaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 108, 170, 22));
 
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -336,19 +338,23 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 126, 32));
+        CadastroAdmin.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 434, 126, 32));
 
-        jButton17.setText("pesquisar");
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
-        CadastroAdmin.add(txtBuscaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 250, -1));
+        CadastroAdmin.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 164, 126, 28));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela adm - adm.png"))); // NOI18N
-        CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        txtBuscaNome.setBackground(new java.awt.Color(229, 229, 229));
+        txtBuscaNome.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtBuscaNome.setBorder(null);
+        CadastroAdmin.add(txtBuscaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 166, 240, 23));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Adm - adm nova 2.png"))); // NOI18N
+        CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
 
         jTabbedPane2.addTab("Administradores", CadastroAdmin);
 
@@ -360,7 +366,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 126, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 126, 32));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Negar.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -368,7 +374,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 126, 30));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 126, 32));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -381,20 +387,20 @@ public class TelaAdmin extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Reservas - adm.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         jLabel6.setPreferredSize(new java.awt.Dimension(800, 507));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 880, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, -1));
 
         jTabbedPane2.addTab("Reservas", jPanel1);
 
         Emprestimos.setBackground(new java.awt.Color(251, 251, 251));
         Emprestimos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Devolver.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Devolver novo.png"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        Emprestimos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 126, 30));
+        Emprestimos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 140, 36));
 
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -406,6 +412,8 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Empréstimo - adm.png"))); // NOI18N
         jLabel5.setText("jLabel5");
+        jLabel5.setMaximumSize(new java.awt.Dimension(800, 507));
+        jLabel5.setMinimumSize(new java.awt.Dimension(800, 507));
         jLabel5.setPreferredSize(new java.awt.Dimension(800, 507));
         Emprestimos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -422,7 +430,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 btConsultarActionPerformed(evt);
             }
         });
-        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 448, 126, 32));
+        Users.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 445, 126, 32));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -430,7 +438,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 448, 126, 32));
+        Users.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 445, 126, 32));
 
         tabelaUsers.setBackground(new java.awt.Color(225, 231, 246));
         tabelaUsers.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -470,7 +478,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsers);
 
-        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 710, 190));
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 700, 200));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -478,28 +486,32 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 448, 126, 32));
+        Users.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 445, 126, 32));
 
         txtNome.setBackground(new java.awt.Color(229, 229, 229));
+        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtNome.setBorder(null);
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
-        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 53, 450, 20));
+        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 53, 450, 22));
 
         txtCpf.setBackground(new java.awt.Color(229, 229, 229));
+        txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtCpf.setBorder(null);
-        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 53, 198, 20));
+        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 53, 185, 22));
 
         txtEmail.setBackground(new java.awt.Color(229, 229, 229));
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtEmail.setBorder(null);
-        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 116, 450, 20));
+        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 116, 450, 22));
 
         txtSenha.setBackground(new java.awt.Color(229, 229, 229));
+        txtSenha.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtSenha.setBorder(null);
-        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 116, 200, 20));
+        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 116, 185, 22));
 
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -509,23 +521,29 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         Users.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jButton18.setText("Pesquisa");
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
             }
         });
-        Users.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, -1, -1));
-        Users.add(txtPesquisaNomeU, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 220, -1));
+        Users.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 169, 126, 28));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela user - adm.png"))); // NOI18N
+        txtPesquisaNomeU.setBackground(new java.awt.Color(229, 229, 229));
+        txtPesquisaNomeU.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtPesquisaNomeU.setBorder(null);
+        Users.add(txtPesquisaNomeU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 171, 237, 24));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Usuário - adm nova.png"))); // NOI18N
         jLabel4.setText("jLabel4");
+        jLabel4.setMaximumSize(new java.awt.Dimension(800, 507));
+        jLabel4.setMinimumSize(new java.awt.Dimension(800, 507));
         jLabel4.setPreferredSize(new java.awt.Dimension(800, 507));
-        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Users.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 507));
 
         jTabbedPane2.addTab("Usuários", Users);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 805, 539));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 540));
 
         pack();
         setLocationRelativeTo(null);
@@ -788,7 +806,6 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

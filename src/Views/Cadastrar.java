@@ -48,7 +48,8 @@ public class Cadastrar extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 555));
-        jPanel1.setMinimumSize(new java.awt.Dimension(903, 555));
+        jPanel1.setMinimumSize(new java.awt.Dimension(800, 555));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 555));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btHome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -63,7 +64,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 btHomeKeyPressed(evt);
             }
         });
-        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 150, 30));
+        jPanel1.add(btHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 475, 150, 32));
 
         campoNome.setBackground(new java.awt.Color(237, 237, 237));
         campoNome.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -73,7 +74,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoNomeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 234, 630, 21));
+        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 186, 630, 21));
 
         campoRua.setBackground(new java.awt.Color(237, 237, 237));
         campoRua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -83,7 +84,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoRuaActionPerformed(evt);
             }
         });
-        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 306, 265, 20));
+        jPanel1.add(campoRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 258, 265, 20));
 
         campoCidade.setBackground(new java.awt.Color(237, 237, 237));
         campoCidade.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -93,12 +94,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoCidadeActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 380, 185, 20));
+        jPanel1.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 332, 185, 20));
 
         campoEmailCad.setBackground(new java.awt.Color(237, 237, 237));
         campoEmailCad.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoEmailCad.setBorder(null);
-        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 451, 295, 20));
+        jPanel1.add(campoEmailCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 403, 295, 20));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Botão Cadastrar.png"))); // NOI18N
@@ -107,7 +108,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 150, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 475, 150, 32));
 
         campoCEP.setBackground(new java.awt.Color(237, 237, 237));
         campoCEP.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -117,12 +118,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoCEPActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 306, 124, 20));
+        jPanel1.add(campoCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 258, 124, 20));
 
         campoN.setBackground(new java.awt.Color(237, 237, 237));
         campoN.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoN.setBorder(null);
-        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 306, 40, 20));
+        jPanel1.add(campoN, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 258, 40, 20));
 
         campoCPF.setBackground(new java.awt.Color(237, 237, 237));
         campoCPF.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -132,7 +133,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoCPFActionPerformed(evt);
             }
         });
-        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 380, 140, 19));
+        jPanel1.add(campoCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 332, 140, 19));
 
         campoUF.setBackground(new java.awt.Color(237, 237, 237));
         campoUF.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -142,12 +143,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoUFActionPerformed(evt);
             }
         });
-        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 66, 20));
+        jPanel1.add(campoUF, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 332, 66, 19));
 
         campoSenhaCad.setBackground(new java.awt.Color(237, 237, 237));
         campoSenhaCad.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoSenhaCad.setBorder(null);
-        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 451, 133, 20));
+        jPanel1.add(campoSenhaCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 403, 133, 20));
 
         campoTel.setBackground(new java.awt.Color(237, 237, 237));
         campoTel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -157,12 +158,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoTelActionPerformed(evt);
             }
         });
-        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 380, 145, 19));
+        jPanel1.add(campoTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 332, 145, 19));
 
         campoBairro.setBackground(new java.awt.Color(237, 237, 237));
         campoBairro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoBairro.setBorder(null);
-        jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 306, 100, 20));
+        jPanel1.add(campoBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 258, 100, 20));
 
         campoConfirmaSenha.setBackground(new java.awt.Color(237, 237, 237));
         campoConfirmaSenha.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -172,12 +173,12 @@ public class Cadastrar extends javax.swing.JFrame {
                 campoConfirmaSenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(campoConfirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 451, 145, 20));
+        jPanel1.add(campoConfirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 403, 145, 20));
 
         confirmaSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela Cadastrar2.png"))); // NOI18N
-        jPanel1.add(confirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1100, 610));
+        jPanel1.add(confirmaSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 555));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 810, 605));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 555));
 
         pack();
         setLocationRelativeTo(null);

@@ -67,8 +67,7 @@ public class TelaUsuario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(251, 251, 251));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - usuário_1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - usuário nova.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(800, 507));
         jLabel1.setMinimumSize(new java.awt.Dimension(800, 507));
         jLabel1.setPreferredSize(new java.awt.Dimension(800, 507));
