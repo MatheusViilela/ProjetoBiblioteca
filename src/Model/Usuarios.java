@@ -14,13 +14,6 @@ public class Usuarios
     private String UF;    
     private String bairro;
 
-    
-    
-    
-    
-    
-    
-
     public Usuarios() 
     {
         this.id=0;
@@ -62,6 +55,10 @@ public class Usuarios
         this.cpf=cpf;
         this.email=email;
         this.senha=senha;
+    }
+
+    public Usuarios(String string, String string0, String string1, String string2, String string3, String string4, String string5) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getId()

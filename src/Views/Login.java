@@ -66,10 +66,11 @@ public class Login extends javax.swing.JFrame {
                 btCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 180, 39));
+        getContentPane().add(btCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 425, 180, 40));
 
         campoLogin.setBackground(new java.awt.Color(233, 233, 235));
         campoLogin.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        campoLogin.setText("camila@gmail.com");
         campoLogin.setBorder(null);
         campoLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         campoLogin.setSelectionColor(new java.awt.Color(255, 255, 255));
@@ -78,10 +79,11 @@ public class Login extends javax.swing.JFrame {
                 campoLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 340, 30));
+        getContentPane().add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 281, 370, 44));
 
         campoSenha.setBackground(new java.awt.Color(229, 229, 229));
         campoSenha.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        campoSenha.setText("123456");
         campoSenha.setBorder(null);
         campoSenha.setSelectionColor(new java.awt.Color(255, 255, 255));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +91,7 @@ public class Login extends javax.swing.JFrame {
                 campoSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 370, 40));
+        getContentPane().add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 369, 370, 44));
 
         btesqueciSenha.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btesqueciSenha.setForeground(new java.awt.Color(11, 42, 119));
@@ -100,7 +102,7 @@ public class Login extends javax.swing.JFrame {
                 btesqueciSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(btesqueciSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        getContentPane().add(btesqueciSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 422, -1, -1));
 
         btLogin.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         btLogin.setForeground(new java.awt.Color(102, 255, 102));
@@ -110,10 +112,10 @@ public class Login extends javax.swing.JFrame {
                 btLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, 110, 40));
+        getContentPane().add(btLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 465, 110, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/TelaLogin.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 800, 543));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 541));
 
         pack();
         setLocationRelativeTo(null);

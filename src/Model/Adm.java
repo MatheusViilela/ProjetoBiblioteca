@@ -26,8 +26,7 @@ public class Adm {
         
     
     
-    
-    
+     
     public int getIdAdm() {
         return idAdm;
     }

@@ -1,6 +1,7 @@
 
 package Controller;
 import Model.Usuarios;
+import Model.Acervo;
 import Model.Adm;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,6 +59,7 @@ public class CadastroBD
             }
         }
     }
+    
      public ArrayList<Usuarios> getListaPessoas() 
     {
         ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
@@ -99,6 +101,49 @@ public class CadastroBD
 
         return listaUsuarios;
     }
+     
+    public ArrayList<Usuarios> getListaAcervo() 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+        
+        try
+        {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM usuarios");
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+
+        return listaUsuarios;
+    }
+    
      public ArrayList<Usuarios> PesquisaNomeUser(String nome) 
     {
         ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
@@ -112,6 +157,137 @@ public class CadastroBD
         {
             stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE nome LIKE ?");
             stmt.setString(1,"%"+nome+"%");
+            res = stmt.executeQuery();
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+
+        return listaUsuarios;
+    }
+      public ArrayList<Usuarios> PesquisaCPFUser(String cpf) 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        
+        try
+        {
+            stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE CPF = ?");
+            stmt.setString(1,cpf);
+            res = stmt.executeQuery();
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+
+        return listaUsuarios;
+    }
+      
+     public ArrayList<Usuarios> PesquisaEmailUser(String email) 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        
+        try
+        {
+            stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE Email LIKE ?");
+            stmt.setString(1,"%"+email+"%");
+            res = stmt.executeQuery();
+            
+            while (res.next())
+            {
+              Usuarios usuarios = new Usuarios(res.getInt("idUsuario"),res.getString("Nome"),res.getString("CPF"), res.getString("Email"), res.getString("Cidade"), res.getString("Rua"), res.getString("Telefone"), res.getString("Senha"), res.getString("CEP"), res.getString("N"), res.getString("UF"), res.getString("Bairro"));
+                listaUsuarios.add(usuarios);
+            }
+            
+        } 
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        finally
+        {
+          
+            try
+            {
+                stmt.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+
+        return listaUsuarios;
+    }
+    
+    public ArrayList<Usuarios> PesquisaSenhaUser(String senha) 
+    {
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<Usuarios>();
+      
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        PreparedStatement stmt = null;
+        ResultSet res = null;
+        
+        try
+        {
+            stmt = connection.prepareStatement("SELECT * FROM usuarios WHERE Senha LIKE ?");
+            stmt.setString(1,"%"+senha+"%");
             res = stmt.executeQuery();
             
             while (res.next())
@@ -185,7 +361,5 @@ public class CadastroBD
             JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
         }                   
     }
-//     
-     
 }
     

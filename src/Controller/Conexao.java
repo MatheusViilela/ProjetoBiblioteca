@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Acervo;
 import Model.Usuarios;
 import java.util.List;
 import java.sql.Statement;
@@ -130,4 +131,33 @@ public class Conexao {
 //        return;
 
     }
+    public List<Acervo> listarAcervo() {
+//       
+        con = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+
+        try {
+            stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM acervo");
+            List<Acervo> listaAcervo = new ArrayList<>();
+
+            while (res.next()) {
+                Acervo obj = new Acervo();
+                obj.setIdItem(res.getInt("idItem"));
+                obj.setTipo(res.getString("Tipo"));
+                obj.setAssunto(res.getString("Assunto"));
+                obj.setTitulo(res.getString("Titulo"));
+                obj.setAutor(res.getString("Autor"));
+                obj.setPublicacao(res.getString("Publicacao"));
+                obj.setEditora(res.getString("Editora"));
+                listaAcervo.add(obj);
+            }
+            return listaAcervo;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 }

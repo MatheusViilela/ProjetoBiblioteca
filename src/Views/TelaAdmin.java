@@ -2,6 +2,7 @@ package Views;
 
 import javax.swing.JOptionPane;
 import Controller.AcessoBD;
+import Controller.CadastroAC_BD;
 import Controller.CadastroADM_BD;
 import Model.Adm;
 import Model.Usuarios;
@@ -14,12 +15,15 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import Controller.Conexao;
 import Controller.CadastroBD;
+import Model.Acervo;
 
 public class TelaAdmin extends javax.swing.JFrame {
 
     private String nome, email, senha;
     private Login hm;
+    private String Tipo, Assunto, Titulo, Autor, Publicacao, Editora;
 
+    //                Listar usuários
     public void Listar() {
         Conexao obj = new Conexao();
         List<Usuarios> Users = obj.listarUsers();
@@ -36,7 +40,7 @@ public class TelaAdmin extends javax.swing.JFrame {
             });
         }
     }
-
+    //               Listar Administradores
     public void ListarAdmin() {
         Conexao obj = new Conexao();
         List<Adm> Adm = obj.listarAdmin();
@@ -52,7 +56,27 @@ public class TelaAdmin extends javax.swing.JFrame {
             });
         }
     }
+    
+    //              Listar Acervo ListarAcervo();
+    public void ListarAcervo() {
+        Conexao obj = new Conexao();
+        List<Acervo> Acervo = obj.listarAcervo();
+        DefaultTableModel dado = (DefaultTableModel) tabelaAcervo.getModel();
+        dado.setNumRows(0);
 
+        for (Acervo cont : Acervo) {
+            dado.addRow(new Object[]{
+                cont.getIdItem(),
+                cont.getTipo(),
+                cont.getAssunto(),
+                cont.getTitulo(),
+                cont.getAutor(),
+                cont.getPublicacao(),
+                cont.getEditora()
+            });
+        }
+    }
+    
     public void readJTableAdm() {
 
         DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
@@ -69,9 +93,9 @@ public class TelaAdmin extends javax.swing.JFrame {
                 u.getEmail(),
                 u.getSenha()
             });
-
         }
     }
+    
     public void readJTableAdmPesquisa(String nome) {
 
         DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
@@ -102,13 +126,200 @@ public class TelaAdmin extends javax.swing.JFrame {
             modelo.addRow(new Object[]{
                 u.getId(),
                 u.getNome(),
+                u.getCpf(),
                 u.getEmail(),
                 u.getSenha()
+            });
+        }
+    }
+     public void readJTableUserCPF(String Cpf) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaUsers.getModel();
+        modelo.setNumRows(0);
+        CadastroBD obj = new CadastroBD();
+        Conexao obje = new Conexao();
+
+        for (Usuarios u : obj.PesquisaCPFUser(Cpf)) {
+
+            modelo.addRow(new Object[]{
+                u.getId(),
+                u.getNome(),
+                u.getCpf(),
+                u.getEmail(),
+                u.getSenha()
+        
             });
 
         }
     }
 
+     public void readJTableUserEmail(String Email) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaUsers.getModel();
+        modelo.setNumRows(0);
+        CadastroBD obj = new CadastroBD();
+        Conexao obje = new Conexao();
+
+        for (Usuarios u : obj.PesquisaEmailUser(Email)) {
+
+            modelo.addRow(new Object[]{
+                u.getId(),
+                u.getNome(),
+                u.getCpf(),
+                u.getEmail(),
+                u.getSenha()
+        
+            });
+        }
+    }
+     
+    public void readJTableUserSenha(String Senha) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaUsers.getModel();
+        modelo.setNumRows(0);
+        CadastroBD obj = new CadastroBD();
+        Conexao obje = new Conexao();
+
+        for (Usuarios u : obj.PesquisaSenhaUser(Senha)) {
+
+            modelo.addRow(new Object[]{
+                u.getId(),
+                u.getNome(),
+                u.getCpf(),
+                u.getEmail(),
+                u.getSenha()
+        
+            });
+
+        }
+    }
+    
+    public void readJTableAcervoTipo(String Tipo) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaTipo(Tipo)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoAssunto(String Assunto) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaAssunto(Assunto)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoTitulo(String Titulo) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaTitulo(Titulo)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoAutor(String Autor) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaAutor(Autor)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoPublicacao(String data) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaDataPubli(data)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoEditora(String Editora) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaEditora(Editora)) {
+
+            modelo.addRow(new Object[]{
+                a.getIdItem(),
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+        }
+    }
+    
     public TelaAdmin() {
         initComponents();
 
@@ -120,6 +331,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         Acervo = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
@@ -127,6 +339,17 @@ public class TelaAdmin extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabelaAcervo = new javax.swing.JTable();
+        campoTipo = new javax.swing.JTextField();
+        campoAutor = new javax.swing.JTextField();
+        campoAssunto = new javax.swing.JTextField();
+        campoPublicacao = new javax.swing.JTextField();
+        campoTitulo = new javax.swing.JTextField();
+        campoEditora = new javax.swing.JTextField();
+        cbPesquisaAcervo = new javax.swing.JComboBox<>();
+        campoPesquisaAcervo = new javax.swing.JTextField();
+        btPesquisarAcervo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         CadastroAdmin = new javax.swing.JPanel();
         campoEmailAdm = new javax.swing.JTextField();
@@ -139,8 +362,9 @@ public class TelaAdmin extends javax.swing.JFrame {
         btEditAdm = new javax.swing.JButton();
         campoSenhaAdm = new javax.swing.JTextField();
         jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        btPesquisarAdm = new javax.swing.JButton();
         txtBuscaNome = new javax.swing.JTextField();
+        cbPesquisaAdm = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -150,6 +374,10 @@ public class TelaAdmin extends javax.swing.JFrame {
         Emprestimos = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabelaEmpAdm = new javax.swing.JTable();
+        campoPesquisaEmp = new javax.swing.JTextField();
+        btPesquisarEmp = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         Users = new javax.swing.JPanel();
         btConsultar = new javax.swing.JButton();
@@ -162,8 +390,9 @@ public class TelaAdmin extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        btPesquisar = new javax.swing.JButton();
         txtPesquisaNomeU = new javax.swing.JTextField();
+        cbPesquisaUsuario = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -178,6 +407,9 @@ public class TelaAdmin extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable1);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -197,6 +429,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         Acervo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Cadastrar (novo).png"))); // NOI18N
+        jButton8.setBorder(null);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -205,6 +438,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         Acervo.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 126, 32));
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
+        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -213,6 +447,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         Acervo.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 126, 32));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
+        jButton10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -236,7 +471,75 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         Acervo.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - adm nova.png"))); // NOI18N
+        tabelaAcervo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        tabelaAcervo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "idItem", "Tipo", "Assunto", "Título", "Autor", "Data de Publicação", "Editora"
+            }
+        ));
+        tabelaAcervo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaAcervoMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tabelaAcervo);
+
+        Acervo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 231, 700, 170));
+
+        campoTipo.setBackground(new java.awt.Color(229, 229, 229));
+        campoTipo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoTipo.setBorder(null);
+        Acervo.add(campoTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 53, 140, 22));
+
+        campoAutor.setBackground(new java.awt.Color(229, 229, 229));
+        campoAutor.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoAutor.setBorder(null);
+        Acervo.add(campoAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 116, 220, 22));
+
+        campoAssunto.setBackground(new java.awt.Color(229, 229, 229));
+        campoAssunto.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoAssunto.setBorder(null);
+        Acervo.add(campoAssunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 53, 210, 22));
+
+        campoPublicacao.setBackground(new java.awt.Color(229, 229, 229));
+        campoPublicacao.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoPublicacao.setBorder(null);
+        Acervo.add(campoPublicacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 116, 195, 22));
+
+        campoTitulo.setBackground(new java.awt.Color(229, 229, 229));
+        campoTitulo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoTitulo.setBorder(null);
+        Acervo.add(campoTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 53, 250, 22));
+
+        campoEditora.setBackground(new java.awt.Color(229, 229, 229));
+        campoEditora.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoEditora.setBorder(null);
+        Acervo.add(campoEditora, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 116, 195, 22));
+
+        cbPesquisaAcervo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cbPesquisaAcervo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Selecione um filtro", "  Tipo", "  Assunto", "  Título", "  Autor", "  Data de publicação", "  Editora" }));
+        Acervo.add(cbPesquisaAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 195, 203, 23));
+
+        campoPesquisaAcervo.setBackground(new java.awt.Color(229, 229, 229));
+        campoPesquisaAcervo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoPesquisaAcervo.setBorder(null);
+        Acervo.add(campoPesquisaAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 196, 236, 22));
+
+        btPesquisarAcervo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
+        btPesquisarAcervo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarAcervoActionPerformed(evt);
+            }
+        });
+        Acervo.add(btPesquisarAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 193, 125, 28));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - adm.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         jLabel7.setMaximumSize(new java.awt.Dimension(800, 507));
         jLabel7.setMinimumSize(new java.awt.Dimension(800, 507));
@@ -259,7 +562,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 campoEmailAdmActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(campoEmailAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 108, 480, 22));
+        CadastroAdmin.add(campoEmailAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 116, 480, 22));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Cadastrar (novo).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -280,9 +583,10 @@ public class TelaAdmin extends javax.swing.JFrame {
         campoNomeAdm.setBackground(new java.awt.Color(229, 229, 229));
         campoNomeAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoNomeAdm.setBorder(null);
-        CadastroAdmin.add(campoNomeAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 45, 660, 22));
+        CadastroAdmin.add(campoNomeAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 53, 660, 22));
 
         tbAdmin.setBackground(new java.awt.Color(225, 231, 246));
+        tbAdmin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         tbAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -309,7 +613,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tbAdmin);
 
-        CadastroAdmin.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 200, 723, 193));
+        CadastroAdmin.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 231, 698, 170));
 
         btListAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
         btListAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -330,7 +634,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         campoSenhaAdm.setBackground(new java.awt.Color(229, 229, 229));
         campoSenhaAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         campoSenhaAdm.setBorder(null);
-        CadastroAdmin.add(campoSenhaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 108, 170, 22));
+        CadastroAdmin.add(campoSenhaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 116, 170, 22));
 
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Excluir.png"))); // NOI18N
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -340,21 +644,35 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         CadastroAdmin.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 434, 126, 32));
 
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btPesquisarAdm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
+        btPesquisarAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btPesquisarAdmActionPerformed(evt);
             }
         });
-        CadastroAdmin.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 164, 126, 28));
+        CadastroAdmin.add(btPesquisarAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 193, 126, 28));
 
         txtBuscaNome.setBackground(new java.awt.Color(229, 229, 229));
         txtBuscaNome.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtBuscaNome.setBorder(null);
-        CadastroAdmin.add(txtBuscaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 166, 240, 23));
+        txtBuscaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaNomeActionPerformed(evt);
+            }
+        });
+        CadastroAdmin.add(txtBuscaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 195, 240, 23));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Adm - adm nova 2.png"))); // NOI18N
-        CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
+        cbPesquisaAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cbPesquisaAdm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Selecione um filtro", "  Nome", "  Email", "  Senha" }));
+        cbPesquisaAdm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPesquisaAdmActionPerformed(evt);
+            }
+        });
+        CadastroAdmin.add(cbPesquisaAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 195, 205, 23));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Tela adm - adm.png"))); // NOI18N
+        CadastroAdmin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 507));
 
         jTabbedPane2.addTab("Administradores", CadastroAdmin);
 
@@ -400,7 +718,7 @@ public class TelaAdmin extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        Emprestimos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 140, 36));
+        Emprestimos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 435, 140, 35));
 
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -410,7 +728,36 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         Emprestimos.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Empréstimo - adm.png"))); // NOI18N
+        tabelaEmpAdm.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        tabelaEmpAdm.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Usuário", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane5.setViewportView(tabelaEmpAdm);
+
+        Emprestimos.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 160, 711, 240));
+
+        campoPesquisaEmp.setBackground(new java.awt.Color(229, 229, 229));
+        campoPesquisaEmp.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoPesquisaEmp.setBorder(null);
+        Emprestimos.add(campoPesquisaEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 72, 235, 25));
+
+        btPesquisarEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
+        btPesquisarEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarEmpActionPerformed(evt);
+            }
+        });
+        Emprestimos.add(btPesquisarEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 71, 125, 28));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Empréstimo - adm NOVA.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         jLabel5.setMaximumSize(new java.awt.Dimension(800, 507));
         jLabel5.setMinimumSize(new java.awt.Dimension(800, 507));
@@ -471,6 +818,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         tabelaUsers.setGridColor(new java.awt.Color(0, 51, 153));
         tabelaUsers.setRowHeight(22);
         tabelaUsers.setSelectionForeground(new java.awt.Color(0, 51, 102));
+        tabelaUsers.setShowGrid(true);
         tabelaUsers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaUsersMouseClicked(evt);
@@ -478,7 +826,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsers);
 
-        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 700, 200));
+        Users.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 700, 170));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Editar.png"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -496,24 +844,25 @@ public class TelaAdmin extends javax.swing.JFrame {
                 txtNomeActionPerformed(evt);
             }
         });
-        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 53, 450, 22));
+        Users.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 53, 445, 22));
 
         txtCpf.setBackground(new java.awt.Color(229, 229, 229));
         txtCpf.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtCpf.setBorder(null);
-        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 53, 185, 22));
+        Users.add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 53, 185, 22));
 
         txtEmail.setBackground(new java.awt.Color(229, 229, 229));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtEmail.setBorder(null);
-        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 116, 450, 22));
+        Users.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 116, 445, 22));
 
         txtSenha.setBackground(new java.awt.Color(229, 229, 229));
         txtSenha.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtSenha.setBorder(null);
-        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 116, 185, 22));
+        Users.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 116, 185, 22));
 
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Sair certo.png"))); // NOI18N
+        jButton15.setBorder(null);
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
@@ -521,20 +870,34 @@ public class TelaAdmin extends javax.swing.JFrame {
         });
         Users.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 6, 68, 28));
 
-        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
+        btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btPesquisarActionPerformed(evt);
             }
         });
-        Users.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 169, 126, 28));
+        Users.add(btPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 192, 126, 29));
 
         txtPesquisaNomeU.setBackground(new java.awt.Color(229, 229, 229));
         txtPesquisaNomeU.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtPesquisaNomeU.setBorder(null);
-        Users.add(txtPesquisaNomeU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 171, 237, 24));
+        txtPesquisaNomeU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisaNomeUActionPerformed(evt);
+            }
+        });
+        Users.add(txtPesquisaNomeU, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 195, 237, 24));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Usuário - adm nova.png"))); // NOI18N
+        cbPesquisaUsuario.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cbPesquisaUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Selecione um filtro", "  Nome", "  CPF", "  Email", "  Senha" }));
+        cbPesquisaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPesquisaUsuarioActionPerformed(evt);
+            }
+        });
+        Users.add(cbPesquisaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 194, 206, 25));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela user - adm.png"))); // NOI18N
         jLabel4.setText("jLabel4");
         jLabel4.setMaximumSize(new java.awt.Dimension(800, 507));
         jLabel4.setMinimumSize(new java.awt.Dimension(800, 507));
@@ -566,7 +929,7 @@ public class TelaAdmin extends javax.swing.JFrame {
         adm.setSenha(senha);
 
         if (CadastroADM_BD.inserirAdm(adm) == true) {
-            JOptionPane.showMessageDialog(null, "Você foi cadastrado com sucesso!!!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -669,19 +1032,91 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_tbAdminMouseClicked
     }
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        Acervo acervo = new Acervo();
+        CadastroAC_BD CadastroAC_BD = new CadastroAC_BD();
+
+        Tipo = campoTipo.getText();
+        Assunto = campoAssunto.getText();
+        Titulo = campoTitulo.getText();
+        Autor = campoAutor.getText();
+        Publicacao = campoPublicacao.getText();
+        Editora = campoEditora.getText();
+        
+        acervo.setTipo(Tipo);
+        acervo.setAssunto(Assunto);
+        acervo.setTitulo(Titulo);
+        acervo.setAutor(Autor);
+        acervo.setPublicacao(Publicacao);
+        acervo.setEditora(Editora);
+        
+        if (CadastroAC_BD.inserirItem(acervo) == true) {
+            JOptionPane.showMessageDialog(null, "Item cadastrado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        ListarAcervo();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja editar?","WARNING", dialogButton);
+        while (tabelaAcervo.getSelectedRow() != -1) {
+            if (dialogButton == JOptionPane.NO_OPTION) {
+                break;
+            } else if (dialogButton == JOptionPane.YES_OPTION) {
+                Acervo p = new Acervo();
+                CadastroAC_BD cad = new CadastroAC_BD();
+
+                p.setTipo(campoTipo.getText());
+                p.setAssunto(campoAssunto.getText());
+                p.setTitulo(campoTitulo.getText());
+                p.setAutor(campoAutor.getText());
+                p.setPublicacao(campoPublicacao.getText());
+                p.setEditora(campoEditora.getText());
+
+                p.setIdItem((int) tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 0));
+                cad.AlterarAcervo(p);
+
+                campoTipo.setText("");
+                campoAssunto.setText("");
+                campoTitulo.setText("");
+                campoAutor.setText("");
+                campoPublicacao.setText("");
+                campoEditora.setText("");
+                break;
+            }
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "Projeto em desenvolvimento", "Erro", JOptionPane.ERROR_MESSAGE);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir?","WARNING", dialogButton);
+        while (tabelaAcervo.getSelectedRow() != -1) {
+            if (dialogButton == JOptionPane.NO_OPTION) {
+                break;
+            } else if (dialogButton == JOptionPane.YES_OPTION) {
+                Acervo p = new Acervo();
+                CadastroAC_BD cad = new CadastroAC_BD();
+
+                p.setIdItem((int) tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 0));
+                cad.DeleteItem(p);
+
+                campoTipo.setText("");
+                campoAssunto.setText("");
+                campoTitulo.setText("");
+                campoAutor.setText("");
+                campoPublicacao.setText("");
+                campoEditora.setText("");
+                break;
+            }
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -698,7 +1133,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir","WARNING", dialogButton);
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir?","WARNING", dialogButton);
         while (tabelaUsers.getSelectedRow() != -1) {
             if (dialogButton == JOptionPane.NO_OPTION) {
                 break;
@@ -746,7 +1181,7 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
        int dialogButton = JOptionPane.YES_NO_OPTION;
-        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir","WARNING", dialogButton);
+        dialogButton = JOptionPane.showConfirmDialog (null, "Tem certeza que deseja excluir?","WARNING", dialogButton);
         while (tbAdmin.getSelectedRow() != -1) {
             if (dialogButton == JOptionPane.NO_OPTION) {
                 break;
@@ -768,13 +1203,114 @@ public class TelaAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        readJTableAdmPesquisa(txtBuscaNome.getText());
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void btPesquisarAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarAdmActionPerformed
+        if(cbPesquisaAdm.getSelectedItem()== "  Selecione um filtro")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione um filtro de pesquisa", "Aviso - Filtro de pesquisa", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(cbPesquisaAdm.getSelectedItem() == "  Nome"){
+            readJTableAdmPesquisa(txtBuscaNome.getText());
+        }
+        else if(cbPesquisaAdm.getSelectedItem() == "  Email")
+        {
+            readJTableAdmPesquisa(txtBuscaNome.getText());
+        }
+        else if(cbPesquisaAdm.getSelectedItem() == "  Senha")
+        {
+            readJTableAdmPesquisa(txtBuscaNome.getText());
+        }
+        
+    }//GEN-LAST:event_btPesquisarAdmActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        readJTableUserPesquisa(txtPesquisaNomeU.getText());
-    }//GEN-LAST:event_jButton18ActionPerformed
+        // Pesquisa com filtro Usuarios com combobox
+    private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
+        if(cbPesquisaUsuario.getSelectedItem() == "  Nome")
+        {
+            readJTableUserPesquisa(txtPesquisaNomeU.getText());
+        } 
+        else if(cbPesquisaUsuario.getSelectedItem() == "  CPF")
+        {
+            readJTableUserCPF(txtPesquisaNomeU.getText());
+        }
+        else if(cbPesquisaUsuario.getSelectedItem() == "  Email")
+        {
+             readJTableUserEmail(txtPesquisaNomeU.getText());
+        }
+        else if(cbPesquisaUsuario.getSelectedItem() == "  Senha")
+        {
+            readJTableUserSenha(txtPesquisaNomeU.getText());
+        }
+        else if(cbPesquisaUsuario.getSelectedItem()== "  Selecione um filtro")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione um filtro de pesquisa", "Aviso - Filtro de pesquisa", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btPesquisarActionPerformed
+
+    private void txtPesquisaNomeUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaNomeUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesquisaNomeUActionPerformed
+
+    private void txtBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscaNomeActionPerformed
+
+    private void cbPesquisaAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPesquisaAdmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPesquisaAdmActionPerformed
+
+    private void cbPesquisaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPesquisaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPesquisaUsuarioActionPerformed
+
+    private void btPesquisarAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarAcervoActionPerformed
+        if(cbPesquisaAcervo.getSelectedItem()== "  Selecione um filtro")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione um filtro de pesquisa", "Aviso - Filtro de pesquisa", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Tipo")
+        {
+            readJTableAcervoTipo(campoPesquisaAcervo.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Assunto")
+        {
+            readJTableAcervoAssunto(campoPesquisaAcervo.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Título")
+        {
+            readJTableAcervoTitulo(campoPesquisaAcervo.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Autor")
+        {
+            readJTableAcervoAutor(campoPesquisaAcervo.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Data de publicação")
+        {
+            readJTableAcervoPublicacao(campoPesquisaAcervo.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Editora")
+        {
+            readJTableAcervoEditora(campoPesquisaAcervo.getText());
+        }
+        else{
+        JOptionPane.showMessageDialog(null, "Erro");
+        }
+    }//GEN-LAST:event_btPesquisarAcervoActionPerformed
+
+    private void tabelaAcervoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAcervoMouseClicked
+        if (tabelaAcervo.getSelectedRow() != -1) {
+            
+            campoTipo.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 1).toString());
+            campoAssunto.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 2).toString());
+            campoTitulo.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 3).toString());
+            campoAutor.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 4).toString());
+            campoPublicacao.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 5).toString());
+            campoEditora.setText(tabelaAcervo.getValueAt(tabelaAcervo.getSelectedRow(), 6).toString());
+    } 
+    }//GEN-LAST:event_tabelaAcervoMouseClicked
+
+    private void btPesquisarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarEmpActionPerformed
+        //    Ainda falta terminar esse, não deu para eu fazer
+    }//GEN-LAST:event_btPesquisarEmpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -785,9 +1321,24 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btEditAdm;
     private javax.swing.JButton btListAdmin;
+    private javax.swing.JButton btPesquisar;
+    private javax.swing.JButton btPesquisarAcervo;
+    private javax.swing.JButton btPesquisarAdm;
+    private javax.swing.JButton btPesquisarEmp;
+    private javax.swing.JTextField campoAssunto;
+    private javax.swing.JTextField campoAutor;
+    private javax.swing.JTextField campoEditora;
     private javax.swing.JTextField campoEmailAdm;
     private javax.swing.JTextField campoNomeAdm;
+    private javax.swing.JTextField campoPesquisaAcervo;
+    private javax.swing.JTextField campoPesquisaEmp;
+    private javax.swing.JTextField campoPublicacao;
     private javax.swing.JTextField campoSenhaAdm;
+    private javax.swing.JTextField campoTipo;
+    private javax.swing.JTextField campoTitulo;
+    private javax.swing.JComboBox<String> cbPesquisaAcervo;
+    private javax.swing.JComboBox<String> cbPesquisaAdm;
+    private javax.swing.JComboBox<String> cbPesquisaUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -796,8 +1347,6 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -806,6 +1355,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -815,8 +1365,12 @@ public class TelaAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaAcervo;
+    private javax.swing.JTable tabelaEmpAdm;
     public javax.swing.JTable tabelaUsers;
     private javax.swing.JTable tbAdmin;
     private javax.swing.JTextField txtBuscaNome;

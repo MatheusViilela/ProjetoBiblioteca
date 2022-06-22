@@ -4,19 +4,167 @@
  */
 package Views;
 
+import Controller.CadastroBD;
+import Controller.CadastroAC_BD;
+import Controller.Conexao;
+import Model.Acervo;
+import Model.Usuarios;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author eduar
  */
 public class TelaUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaUsuario
-     */
+    public void ListarAcervo() {
+        Conexao obj = new Conexao();
+        List<Acervo> Acervo = obj.listarAcervo();
+        DefaultTableModel dado = (DefaultTableModel) tabelaAcervo.getModel();
+        dado.setNumRows(0);
+
+        for (Acervo cont : Acervo) {
+            dado.addRow(new Object[]{
+                cont.getTipo(),
+                cont.getAssunto(),
+                cont.getTitulo(),
+                cont.getAutor(),
+                cont.getPublicacao(),
+                cont.getEditora()
+            });
+        }
+    }
+    
+    public void readJTableAcervoTipo(String tipo) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaTipo(tipo)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    
+    public void readJTableAcervoAssunto(String assunto) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaAssunto(assunto)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    public void readJTableAcervoTitulo(String titulo) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaTitulo(titulo)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    
+    public void readJTableAcervoAutor(String autor) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaAutor(autor)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    
+    public void readJTableAcervoPublicacao(String publicacao) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaDataPubli(publicacao)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    
+    public void readJTableAcervoEditora(String editora) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tabelaAcervo.getModel();
+        modelo.setNumRows(0);
+        CadastroAC_BD obj = new CadastroAC_BD();
+        Conexao obje = new Conexao();
+
+        for (Acervo a : obj.PesquisaEditora(editora)) {
+
+            modelo.addRow(new Object[]{
+                a.getTipo(),
+                a.getAssunto(),
+                a.getTitulo(),
+                a.getAutor(),
+                a.getPublicacao(),
+                a.getEditora()
+            });
+
+        }
+    }
+    
     public TelaUsuario() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,8 +180,13 @@ public class TelaUsuario extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tabelaAcervo = new javax.swing.JTable();
+        btEmprestar = new javax.swing.JButton();
+        btReservar = new javax.swing.JButton();
+        btPesquisarAcervo = new javax.swing.JButton();
+        cbPesquisaAcervo = new javax.swing.JComboBox<>();
+        campoPesquisaAcervoU = new javax.swing.JTextField();
+        btConsultar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,25 +227,64 @@ public class TelaUsuario extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaAcervo.setBackground(new java.awt.Color(225, 231, 246));
+        tabelaAcervo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        tabelaAcervo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Livro", "Harry Potter e Pedra Filosofal", "J K Rowling", " Bloomsbury", "26/06/1997"},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {"", "", "", "", "", "", ""},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Nome", "Autor", "Editora", "Data de Publicação"
+                "Tipo", "Assunto", "Título", "Autor", "Data de publicação", "Editora", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tabelaAcervo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tabelaAcervo.setShowGrid(true);
+        jScrollPane1.setViewportView(tabelaAcervo);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 720, 340));
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 140, 30));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 96, 717, 328));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - usuário nova.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 532));
+        btEmprestar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Emprestar.png"))); // NOI18N
+        jPanel2.add(btEmprestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 135, 32));
+
+        btReservar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Reservar.png"))); // NOI18N
+        jPanel2.add(btReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 135, 32));
+
+        btPesquisarAcervo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Pesquisar.png"))); // NOI18N
+        btPesquisarAcervo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPesquisarAcervoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btPesquisarAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(624, 52, 125, 28));
+
+        cbPesquisaAcervo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cbPesquisaAcervo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Selecione um filtro", "  Tipo", "  Assunto", "  Título", "  Autor", "  Data de publicação", "  Editora" }));
+        cbPesquisaAcervo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPesquisaAcervoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cbPesquisaAcervo, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 55, 205, 22));
+
+        campoPesquisaAcervoU.setBackground(new java.awt.Color(229, 229, 229));
+        campoPesquisaAcervoU.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        campoPesquisaAcervoU.setBorder(null);
+        jPanel2.add(campoPesquisaAcervoU, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 54, 235, 24));
+
+        btConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/botão Consultar.png"))); // NOI18N
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 135, 32));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tela Acervo - usuário_1.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
 
         jTabbedPane1.addTab("Acervo", jPanel2);
 
@@ -132,7 +324,7 @@ public class TelaUsuario extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 491, Short.MAX_VALUE))
+                .addGap(0, 516, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -165,13 +357,60 @@ public class TelaUsuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btPesquisarAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarAcervoActionPerformed
+        if(cbPesquisaAcervo.getSelectedItem()== "  Selecione um filtro")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione um filtro de pesquisa", "Aviso - Filtro de pesquisa", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Tipo")
+        {
+            readJTableAcervoTipo(campoPesquisaAcervoU.getText());
+        } 
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Assunto")
+        {
+            readJTableAcervoAssunto(campoPesquisaAcervoU.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem()== "  Título")
+        {
+            readJTableAcervoTitulo(campoPesquisaAcervoU.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Autor")
+        {
+            readJTableAcervoAutor(campoPesquisaAcervoU.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Data de publicação")
+        {
+            readJTableAcervoPublicacao(campoPesquisaAcervoU.getText());
+        }
+        else if(cbPesquisaAcervo.getSelectedItem() == "  Editora")
+        {
+            readJTableAcervoEditora(campoPesquisaAcervoU.getText());
+        }
+        else{
+        JOptionPane.showMessageDialog(null, "Erro");
+        }
+    }//GEN-LAST:event_btPesquisarAcervoActionPerformed
+
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+        ListarAcervo();
+    }//GEN-LAST:event_btConsultarActionPerformed
+
+    private void cbPesquisaAcervoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPesquisaAcervoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPesquisaAcervoActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btConsultar;
+    private javax.swing.JButton btEmprestar;
+    private javax.swing.JButton btPesquisarAcervo;
+    private javax.swing.JButton btReservar;
+    private javax.swing.JTextField campoPesquisaAcervoU;
+    private javax.swing.JComboBox<String> cbPesquisaAcervo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -184,6 +423,6 @@ public class TelaUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaAcervo;
     // End of variables declaration//GEN-END:variables
 }
