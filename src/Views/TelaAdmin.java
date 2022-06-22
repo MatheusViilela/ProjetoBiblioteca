@@ -114,6 +114,44 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         }
     }
+    public void readJTableAdmEmail(String email) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
+        modelo.setNumRows(0);
+        CadastroADM_BD obj = new CadastroADM_BD();
+        Conexao obje = new Conexao();
+
+        for (Adm u : obj.PesquisaEmailAdm(email)) {
+
+            modelo.addRow(new Object[]{
+                u.getIdAdm(),
+                u.getNome(),
+                u.getEmail(),
+                u.getSenha()
+            });
+
+        }
+    }
+    
+    public void readJTableAdmSenha(String senha) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tbAdmin.getModel();
+        modelo.setNumRows(0);
+        CadastroADM_BD obj = new CadastroADM_BD();
+        Conexao obje = new Conexao();
+
+        for (Adm u : obj.PesquisaSenhaAdm(senha)) {
+
+            modelo.addRow(new Object[]{
+                u.getIdAdm(),
+                u.getNome(),
+                u.getEmail(),
+                u.getSenha()
+            });
+
+        }
+    }
+    
     public void readJTableUserPesquisa(String nome) {
 
         DefaultTableModel modelo = (DefaultTableModel) tabelaUsers.getModel();
@@ -1204,7 +1242,7 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void btPesquisarAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarAdmActionPerformed
-        if(cbPesquisaAdm.getSelectedItem()== "  Selecione um filtro")
+        if(cbPesquisaAdm.getSelectedItem() == "  Selecione um filtro")
         {
             JOptionPane.showMessageDialog(null, "Selecione um filtro de pesquisa", "Aviso - Filtro de pesquisa", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -1213,11 +1251,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         }
         else if(cbPesquisaAdm.getSelectedItem() == "  Email")
         {
-            readJTableAdmPesquisa(txtBuscaNome.getText());
+            readJTableAdmEmail(txtBuscaNome.getText());
         }
         else if(cbPesquisaAdm.getSelectedItem() == "  Senha")
         {
-            readJTableAdmPesquisa(txtBuscaNome.getText());
+            readJTableAdmSenha(txtBuscaNome.getText());
         }
         
     }//GEN-LAST:event_btPesquisarAdmActionPerformed
